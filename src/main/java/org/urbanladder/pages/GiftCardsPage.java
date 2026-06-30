@@ -22,8 +22,7 @@ public class GiftCardsPage {
     @FindBy(id = "email")
     WebElement emailField;
 
-    @FindBy(id = "telephone")
-    WebElement mobileNumber;
+
 
     public void enterFirstName(String name) {
         firstName.sendKeys(name);
@@ -37,7 +36,5 @@ public class GiftCardsPage {
         emailField.sendKeys(email);
     }
 
-    public void enterTelephone(String mobile) {
-        mobileNumber.sendKeys(mobile);
-    }
+
 }
