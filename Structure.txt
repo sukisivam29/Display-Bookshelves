@@ -1,0 +1,90 @@
+Display-Bookshelves
+│
+├── .idea
+│
+├── src
+│   │
+│   ├── main
+│   │   └── java
+│   │       └── org.urbanladder
+│   │
+│   │           ├── pages
+│   │           │   ├── UrbanLadderHomePage.java
+│   │           │   ├── BookshelvesPage.java
+│   │           │   ├── GiftCardsPage.java
+│   │           │   └── OasisCollectionPage.java
+│   │           │
+│   │           ├── utilities
+│   │           │   ├── ExcelUtils.java
+│   │           │   ├── ConfigReader.java
+│   │           │   ├── ScreenshotUtils.java
+│   │           │   ├── WaitUtils.java
+│   │           │   ├── ReportManager.java
+│   │           │   └── FileUtils.java
+│   │           │
+│   │           └── listeners
+│   │               └── ExtentReportListener.java
+│   │
+│   ├── test
+│   │   └── java
+│   │       │
+│   │       ├── basetest
+│   │       │   └── DriverInit.java
+│   │       │
+│   │       └── org.urbanladder.tests
+│   │
+│   │           ├── TC01_BookshelvesBelow15000.java
+│   │           ├── TC02_OpenStorageFilter.java
+│   │           ├── TC03_OutOfStockIncluded.java
+│   │           ├── TC04_SamePriceProducts.java
+│   │           ├── TC05_VerifyNameAndPrice.java
+│   │           ├── TC06_Top3StudyChairs.java
+│   │
+│   │           ├── TC07_BookshelvesBelow15000_InStock.java
+│   │           ├── TC08_OpenStorage_InStock.java
+│   │           ├── TC09_ExcludeOutOfStock.java
+│   │           ├── TC10_First3BookshelfDetails.java
+│   │           ├── TC11_VerifySortingOrder.java
+│   │           ├── TC12_LessThan3Results.java
+│   │
+│   │           ├── TC13_CollectionsMenuNavigation.java
+│   │           ├── TC14_CollectionsSubmenuVisibility.java
+│   │           ├── TC15_ExtractSubmenuItems.java
+│   │           ├── TC16_StoreSubmenuItems.java
+│   │           ├── TC17_DisplayStoredList.java
+│   │           ├── TC18_NavigateUsingSubmenu.java
+│   │
+│   │           ├── TC19_GiftCardNavigation.java
+│   │           ├── TC20_SelectBirthdayAnniversaryCard.java
+│   │           ├── TC21_ValidGiftCardForm.java
+│   │           ├── TC22_InvalidEmailValidation.java
+│   │           ├── TC23_ValidateErrorMessage.java
+│   │           └── TC24_PreventInvalidSubmission.java
+│   │
+│   └── resources
+│       ├── config.properties
+│       ├── extent-config.xml
+│       ├── log4j2.xml
+│       │
+│       └── testdata
+│           ├── BookShelvesData.xlsx
+│           ├── GiftCardData.xlsx
+│           └── CollectionsData.xlsx
+│
+├── reports
+│   └── ExtentReport.html
+│
+├── screenshots
+│   └── (failure screenshots)
+│
+├── logs
+│   └── automation.log
+│
+├── test-output
+│   ├── email-able-report.html
+│   ├── index.html
+│   └── testng-results.xml
+│
+├── .gitignore
+├── pom.xml
+└── testng.xml
