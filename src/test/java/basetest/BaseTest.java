@@ -14,10 +14,10 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.Properties;
 
-public class DriverInit {
+public class BaseTest {
     protected static WebDriver driver;
     protected static WebDriverWait wait;
-    public Properties p;
+    public Properties properties;
 
     @BeforeClass
     public void setDriver() throws IOException {
@@ -25,11 +25,11 @@ public class DriverInit {
         options.addArguments("--disable-notifications");
         options.addArguments("--headless=new");
         driver = new ChromeDriver(options);
-        FileReader file=new FileReader(".//src//test//resources//config.properties");
-        p=new Properties();
-        p.load(file);
+        FileReader file = new FileReader(".//src//test//resources//config.properties");
+        properties = new Properties();
+        properties.load(file);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.get("https://www.urbanladder.com/");
+        driver.get(properties.getProperty("url"));
         driver.manage().window().maximize();
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
