@@ -16,7 +16,7 @@ public class UrbanLadderHomePage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(id = "inputSearch")
+    @FindBy(id = "searchInput")
     private WebElement searchBox;
 
     @FindBy(xpath = "//a[text()='Gift Cards']")

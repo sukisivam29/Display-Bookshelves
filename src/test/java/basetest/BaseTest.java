@@ -4,7 +4,6 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
@@ -17,24 +16,21 @@ import java.util.Properties;
 public class BaseTest {
     protected static WebDriver driver;
     protected static WebDriverWait wait;
-    public Properties properties;
+    public static Properties properties;
 
-    @BeforeClass
+    @BeforeSuite
     public void setDriver() throws IOException {
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-notifications");
-        options.addArguments("--headless=new");
-        driver = new ChromeDriver(options);
+        driver = new ChromeDriver();
         FileReader file = new FileReader(".//src//test//resources//config.properties");
         properties = new Properties();
         properties.load(file);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.get(properties.getProperty("url"));
+        driver.get(properties.getProperty("base.url"));
         driver.manage().window().maximize();
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
 
-    @AfterClass
+    @AfterSuite
     public void tearDown() {
         driver.quit();
     }

@@ -1,86 +1,95 @@
 package main.java.org.urbanladder.pages;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class BookshelvesPage {
-    private WebDriver driver;
+import java.time.Duration;
+
+public class BookshelvesPage{
+    WebDriver driver;
+    WebDriverWait wait;
 
     public BookshelvesPage(WebDriver driver) {
         this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(id = "inputSearchDrawer")
-    WebElement search;
+    @FindBy(xpath = "//a[text()='Gift Cards']")
+    private WebElement giftCards;
 
-    @FindBy(className="GjPty")
-    WebElement filter;
+    @FindBy(xpath = "//div[text()='ALL FILTERS']")
+    WebElement allFilters;
 
-    @FindBy(id="filter-tab-storage-type")
-    WebElement storage;
+    @FindBy(xpath = "//div[@aria-label='Storage Type']")
+    WebElement storageType;
 
-    @FindBy(className = "Dlqfv")
-    WebElement storageCheckbox;
+    @FindBy(xpath = "//div[text()='Open Storage']")
+    WebElement openStorageType;
 
-    @FindBy(id="filter-tab-min_price_effective")
+    @FindBy(xpath = "//div[@aria-label='Price']")
     WebElement price;
 
-    @FindBy(xpath="//div[@id='inputfields']//input[@type='text'])[1]")
+    @FindBy(xpath="(//div[@id='inputfields']//input[@type='text'])[1]")
     WebElement input1;
 
-    @FindBy(xpath="//div[@id='inputfields']//input[@type='text'])[2]")
+    @FindBy(xpath="(//div[@id='inputfields']//input[@type='text'])[2]")
     WebElement input2;
 
-    @FindBy(id="filter-tab-is_available")
+    @FindBy(xpath = "//div[@aria-label='Availability']")
     WebElement availability;
 
-    @FindBy(className = "UnrgZ")
-    WebElement outof;
+    @FindBy(id = "accordion-panel-availability")
+    WebElement outOfStock;
 
-    @FindBy(className = "zTzmw")
+    @FindBy(xpath = "//button[@data-testid='plp-filter-apply-button']")
     WebElement apply;
 
-    public void clickSearch(){
-        search.sendKeys("bookselves");
-        search.click();
+    public void clickOnGiftCardsPage(){
+        giftCards.click();
     }
 
-    public void clickFilter(){
-        filter.click();
+    public void clickAllFilters(){
+        allFilters.click();
     }
 
     public void clickStorage(){
-        storage.click();
+        storageType.click();
     }
 
-    public void clickOpenStore(){
-        storageCheckbox.click();
+    public void clickOpenStorageType(){
+        openStorageType.click();
     }
 
     public void clickPrice(){
         price.click();
     }
 
-    public void minPrice(){
-        input1.sendKeys("0");
+    public void enterMinPrice(String minPrice){
+        input1.clear();
+        input1.sendKeys(minPrice+ Keys.ENTER);
     }
 
-    public void maxPrice(){
-        input1.sendKeys("15000");
+    public void enterMaxPrice(String maxPrice){
+        input2.clear();
+        input2.sendKeys(maxPrice+Keys.ENTER);
     }
 
-    public void clickAvailable(){
+    public void clickAvailablity(){
         availability.click();
     }
 
-    public void outOfStock(){
-        outof.click();
+    public void clickOutOfStock(){
+        outOfStock.click();
     }
 
     public void clickApply(){
+//        apply.click();
+//        wait.until(ExpectedConditions.elementToBeClickable(apply));
         apply.click();
     }
 }

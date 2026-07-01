@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite" verbose="1">
+    <!--    <parameter name="" value=""></parameter>-->
+    <test name="TC1">
+        <classes>
+            <class name="test.java.org.urbanladder.tests.TC1_VerifyPrice"/>
+            <class name="test.java.org.urbanladder.tests.TC2_VerifyStorageType"></class>
+            <class name="test.java.org.urbanladder.tests.TC3_VerifyInclusionOfStock"></class>
+            <class name="test.java.org.urbanladder.tests.TC18_NavigateGiftPage"></class>
+            <class name="test.java.org.urbanladder.tests.TC19_VerifyDesignTemplate"></class>
+        </classes>
+    </test>
+</suite>
