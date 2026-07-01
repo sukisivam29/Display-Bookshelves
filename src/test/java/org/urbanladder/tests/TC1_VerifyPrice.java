@@ -10,10 +10,17 @@ public class TC1_VerifyPrice extends BaseTest {
     public void verifyBookshelvesPriceBelow15000() {
         UrbanLadderHomePage urbanLadderHomePage = new UrbanLadderHomePage(driver);
         BookshelvesPage bookshelvesPage = new BookshelvesPage(driver);
-        urbanLadderHomePage.enterSearch("Bookshelves");
+
+        String book = properties.getProperty("search.value");
+        urbanLadderHomePage.enterSearch(book);
+
         bookshelvesPage.clickAllFilters();
         bookshelvesPage.clickPrice();
-        bookshelvesPage.enterMinPrice("0");
-        bookshelvesPage.enterMaxPrice("15000");
+
+        String minPrice=properties.getProperty("min.value");
+        bookshelvesPage.enterMinPrice(minPrice);
+
+        String maxPrice=properties.getProperty("max.value");
+        bookshelvesPage.enterMaxPrice(maxPrice);
     }
 }
