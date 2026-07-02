@@ -9,11 +9,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class BookshelvesPage{
+public class SearchResultsPage {
     WebDriver driver;
     WebDriverWait wait;
 
-    public BookshelvesPage(WebDriver driver) {
+    public SearchResultsPage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         PageFactory.initElements(driver, this);

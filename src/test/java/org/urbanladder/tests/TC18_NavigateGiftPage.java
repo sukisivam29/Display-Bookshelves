@@ -1,6 +1,6 @@
 package test.java.org.urbanladder.tests;
 
-import main.java.org.urbanladder.pages.BookshelvesPage;
+import main.java.org.urbanladder.pages.SearchResultsPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import test.java.basetest.BaseTest;
@@ -10,9 +10,9 @@ import java.util.Set;
 public class TC18_NavigateGiftPage extends BaseTest {
     @Test
     public void navigateToGiftCardPage(){
-        BookshelvesPage bookshelvesPage = new BookshelvesPage(driver);
+        SearchResultsPage searchResultsPage = new SearchResultsPage(driver);
         String currentWindowId = driver.getWindowHandle();
-        bookshelvesPage.clickOnGiftCardsPage();
+        searchResultsPage.clickOnGiftCardsPage();
         Set<String> windows = driver.getWindowHandles();
         for(String window : windows){
             if(!currentWindowId.equals(window)){

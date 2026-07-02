@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class UrbanLadderHomePage {
-    private WebDriver driver;
+    WebDriver driver;
 
     public UrbanLadderHomePage(WebDriver driver) {
         this.driver = driver;

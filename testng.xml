@@ -4,11 +4,10 @@
     <!--    <parameter name="" value=""></parameter>-->
     <test name="TC1">
         <classes>
-            <class name="test.java.org.urbanladder.tests.TC1_VerifyPrice"/>
-            <class name="test.java.org.urbanladder.tests.TC2_VerifyStorageType"></class>
-            <class name="test.java.org.urbanladder.tests.TC3_VerifyInclusionOfStock"></class>
-            <class name="test.java.org.urbanladder.tests.TC18_NavigateGiftPage"></class>
-            <class name="test.java.org.urbanladder.tests.TC19_VerifyDesignTemplate"></class>
+            <class name="test.java.org.urbanladder.tests.TC1_verifyBookshelvesFilter"/>
+            <class name="test.java.org.urbanladder.tests.TC5_verifyStudyChairFilter"/>
+            <class name="test.java.org.urbanladder.tests.TC18_NavigateGiftPage"/>
+            <class name="test.java.org.urbanladder.tests.TC19_VerifyDesignTemplate"/>
         </classes>
     </test>
 </suite>
