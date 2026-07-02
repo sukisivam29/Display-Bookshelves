@@ -12,6 +12,7 @@ public class TC19_VerifyDesignTemplate extends BaseTest {
         GiftCardsPage giftCardsPage = new GiftCardsPage(driver);
         String theme = properties.getProperty("theme");
         giftCardsPage.selectDesignTheme(theme);
+        logger.info("TC_19 Execution Completed");
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertTrue(
                 giftCardsPage.isBirthdayThemeDisplayed(),

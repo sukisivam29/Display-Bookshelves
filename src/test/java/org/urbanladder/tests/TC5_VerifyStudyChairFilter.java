@@ -22,6 +22,7 @@ public class TC5_VerifyStudyChairFilter extends BaseTest {
         searchResultsPage.clickAvailablity();
         searchResultsPage.clickOutOfStock();
         searchResultsPage.clickApply();
+        logger.info("TC_5 Execution Completed");
         int firstPrice = searchResultsPage.getFirstProductPrice();
         int maxPrice = Integer.parseInt(properties.getProperty("max.value"));
 

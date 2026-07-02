@@ -14,6 +14,7 @@ public class TC12_VerifyOasisCollection extends BaseTest {
 
         softAssert.assertTrue(urbanLadderHomePage.newArrivalsButtonIsVisible());
         urbanLadderHomePage.hoverOnNewArrivals();
+        logger.info("TC_12 Execution Completed");
 
         softAssert.assertTrue(urbanLadderHomePage.oasisCollectionButtonIsDisplayed());
 
