@@ -16,13 +16,12 @@ public class TC13_VerifyOasisCollectionSubMenu extends BaseTest {
         UrbanLadderHomePage urbanLadderHomePage = new UrbanLadderHomePage(driver);
         SoftAssert softAssert = new SoftAssert();
 
-        List<String> expectedOasisItems = ExcelReaderUtil.getExpectedMenuItems(properties.getProperty("oasis.excel"), "MenuData");
+        List<String> expectedOasisItems = ExcelReaderUtil.getExpectedMenuItems(properties.getProperty("oasis.excelPath"), properties.getProperty("oasis.sheetName"));
 
         urbanLadderHomePage.hoverOnNewArrivals();
         softAssert.assertTrue(urbanLadderHomePage.oasisCollectionButtonIsDisplayed());
 
         List<WebElement> oasisSubMenu = urbanLadderHomePage.retrieveOasisCollectionList();
-
         List<String> actualItems = oasisSubMenu.stream()
                         .map(element -> element.getText().trim())
                                 .toList();

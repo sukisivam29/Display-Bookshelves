@@ -10,7 +10,6 @@ public class TC12_VerifyOasisCollection extends BaseTest {
     @Test
     public void verifyOasisCollectionIsDisplayed() {
         UrbanLadderHomePage urbanLadderHomePage = new UrbanLadderHomePage(driver);
-
         SoftAssert softAssert = new SoftAssert();
 
         softAssert.assertTrue(urbanLadderHomePage.newArrivalsButtonIsVisible());

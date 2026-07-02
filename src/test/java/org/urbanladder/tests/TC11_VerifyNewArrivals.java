@@ -11,7 +11,6 @@ public class TC11_VerifyNewArrivals extends BaseTest {
         UrbanLadderHomePage urbanLadderHomePage = new UrbanLadderHomePage(driver);
 
         SoftAssert softAssert = new SoftAssert();
-
         softAssert.assertTrue(urbanLadderHomePage.newArrivalsButtonIsVisible());
 
         urbanLadderHomePage.hoverOnNewArrivals();
