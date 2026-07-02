@@ -9,7 +9,6 @@ public class TC11_VerifyNewArrivals extends BaseTest {
     @Test
     public void verifyNewArrivalsMenuVisible() {
         UrbanLadderHomePage urbanLadderHomePage = new UrbanLadderHomePage(driver);
-
         SoftAssert softAssert = new SoftAssert();
 
         softAssert.assertTrue(urbanLadderHomePage.newArrivalsButtonIsVisible());
