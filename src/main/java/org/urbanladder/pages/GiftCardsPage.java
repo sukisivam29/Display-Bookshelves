@@ -161,4 +161,8 @@ public class GiftCardsPage {
         giftMessage.sendKeys(message);
     }
 
+    public boolean isBirthdayThemeDisplayed() {
+        return birthdayTheme.isDisplayed();
+    }
+
 }

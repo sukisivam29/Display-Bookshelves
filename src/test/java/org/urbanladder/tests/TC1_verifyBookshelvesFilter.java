@@ -3,6 +3,7 @@ package test.java.org.urbanladder.tests;
 import main.java.org.urbanladder.pages.SearchResultsPage;
 import main.java.org.urbanladder.pages.UrbanLadderHomePage;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import test.java.basetest.BaseTest;
 
 public class TC1_verifyBookshelvesFilter extends BaseTest {
@@ -20,5 +21,18 @@ public class TC1_verifyBookshelvesFilter extends BaseTest {
         searchResultsPage.clickAvailablity();
         searchResultsPage.clickOutOfStock();
         searchResultsPage.clickApply();
+
+        SoftAssert softAssert = new SoftAssert();
+
+        int firstPrice = searchResultsPage.getFirstProductPrice();
+        int maxPrice = Integer.parseInt(properties.getProperty("max.value"));
+
+        softAssert.assertTrue(
+                firstPrice <= maxPrice,
+                "Highest priced bookshelf displayed is outside the filter range. Actual Price: "
+                        + firstPrice
+        );
+
+        softAssert.assertAll();
     }
 }
