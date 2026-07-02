@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import test.java.basetest.BaseTest;
 
-public class TC1_verifyBookshelvesFilter extends BaseTest {
+public class TC1_VerifyBookshelvesFilter extends BaseTest {
     @Test
     public void verifyAllFiltersForBookshelves(){
         UrbanLadderHomePage urbanLadderHomePage = new UrbanLadderHomePage(driver);
