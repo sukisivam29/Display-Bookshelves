@@ -11,28 +11,26 @@ public class TC1_verifyBookshelvesFilter extends BaseTest {
     public void verifyAllFiltersForBookshelves(){
         UrbanLadderHomePage urbanLadderHomePage = new UrbanLadderHomePage(driver);
         SearchResultsPage searchResultsPage = new SearchResultsPage(driver);
+        SoftAssert softAssert = new SoftAssert();
         urbanLadderHomePage.enterSearch(properties.getProperty("search.query1"));
         searchResultsPage.clickAllFilters();
-        searchResultsPage.clickPrice();
-        searchResultsPage.enterMinPrice(properties.getProperty("min.value"));
-        searchResultsPage.enterMaxPrice(properties.getProperty("max.value"));
         searchResultsPage.clickStorage();
         searchResultsPage.clickOpenStorageType();
         searchResultsPage.clickAvailablity();
         searchResultsPage.clickOutOfStock();
+        searchResultsPage.clickPrice();
+        searchResultsPage.enterMinPrice(properties.getProperty("min.value"));
+        searchResultsPage.enterMaxPrice(properties.getProperty("max.value"));
         searchResultsPage.clickApply();
-
-        SoftAssert softAssert = new SoftAssert();
-
+        searchResultsPage.clickSortBy();
+        searchResultsPage.clickHighToLow();
         int firstPrice = searchResultsPage.getFirstProductPrice();
         int maxPrice = Integer.parseInt(properties.getProperty("max.value"));
-
         softAssert.assertTrue(
                 firstPrice <= maxPrice,
                 "Highest priced bookshelf displayed is outside the filter range. Actual Price: "
                         + firstPrice
         );
-
         softAssert.assertAll();
     }
 }

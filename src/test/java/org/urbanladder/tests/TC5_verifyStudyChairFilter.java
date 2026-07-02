@@ -11,6 +11,7 @@ public class TC5_verifyStudyChairFilter extends BaseTest {
     public void verifyAllFilterForStudyChair(){
         UrbanLadderHomePage urbanLadderHomePage = new UrbanLadderHomePage(driver);
         SearchResultsPage searchResultsPage = new SearchResultsPage(driver);
+        SoftAssert softAssert = new SoftAssert();
         urbanLadderHomePage.enterSearch(properties.getProperty("search.query2"));
         searchResultsPage.clickAllFilters();
         searchResultsPage.clickPrice();
@@ -21,9 +22,6 @@ public class TC5_verifyStudyChairFilter extends BaseTest {
         searchResultsPage.clickAvailablity();
         searchResultsPage.clickOutOfStock();
         searchResultsPage.clickApply();
-
-        SoftAssert softAssert = new SoftAssert();
-
         int firstPrice = searchResultsPage.getFirstProductPrice();
         int maxPrice = Integer.parseInt(properties.getProperty("max.value"));
 
@@ -32,7 +30,6 @@ public class TC5_verifyStudyChairFilter extends BaseTest {
                 "Highest priced study chair displayed is outside the filter range. Actual Price: "
                         + firstPrice
         );
-
         softAssert.assertAll();
     }
 }

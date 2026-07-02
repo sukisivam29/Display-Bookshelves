@@ -6,7 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -113,13 +112,9 @@ public class SearchResultsPage {
     }
 
     public int getFirstProductPrice() {
-
-        String priceText = firstProductPrice.getText()
-                .replace("Deal Price:", "")
-                .replace("₹", "")
-                .replace(",", "")
+        String priceText = firstProductPrice.getAttribute("textContent")
+                .replaceAll("[^0-9]","")
                 .trim();
-
         return Integer.parseInt(priceText);
     }
 }
