@@ -25,6 +25,9 @@ public class UrbanLadderHomePage {
     @FindBy(xpath = "//div[contains(@role, 'button')]/span[text()='New Arrivals']")
     private WebElement newArrivalsButton;
 
+    @FindBy(id = "category-menu-0")
+    WebElement newArrivalsMenu;
+
     @FindBy(xpath = "//div[@id='category-menu-0']//a[text()='Oasis Collection']")
     private WebElement oasisCollectionButton;
 
@@ -39,16 +42,32 @@ public class UrbanLadderHomePage {
         giftCardsButton.click();
     }
 
+    public boolean newArrivalsButtonIsVisible() {
+        return newArrivalsButton.isDisplayed();
+    }
+
     public void hoverOnNewArrivals() {
         Actions actions = new Actions(driver);
         actions.moveToElement(newArrivalsButton).perform();
     }
 
-    public void clickNewArrivalsButton() {
+    public boolean oasisCollectionButtonIsDisplayed() {
+        return oasisCollectionButton.isDisplayed();
+    }
+
+    public String oasisCollectionURL() {
+        return oasisCollectionButton.getAttribute("href");
+    }
+
+    public void clickOasisCollectionButton() {
         oasisCollectionButton.click();
     }
 
     public List<WebElement> retrieveOasisCollectionList() {
         return oasisCollectionList;
+    }
+
+    public boolean newArrivalsMenuIsDisplayed() {
+        return newArrivalsMenu.isDisplayed();
     }
 }

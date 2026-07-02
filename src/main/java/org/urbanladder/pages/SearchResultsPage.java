@@ -3,6 +3,7 @@ package main.java.org.urbanladder.pages;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -25,6 +26,12 @@ public class SearchResultsPage {
     @FindBy(xpath = "//div[text()='ALL FILTERS']")
     WebElement allFilters;
 
+    @FindBy(xpath = "//div[@aria-controls='dropdown-menu-sort-by']")
+    WebElement sortBy;
+
+    @FindBy(xpath = "//div[@data-testid='plp-sort-option-1']")
+    WebElement highToLow;
+
     @FindBy(xpath = "//div[@aria-label='Storage Type']")
     WebElement storageType;
 
@@ -43,7 +50,7 @@ public class SearchResultsPage {
     @FindBy(xpath = "//div[@aria-label='Availability']")
     WebElement availability;
 
-    @FindBy(id = "accordion-panel-availability")
+    @FindBy(xpath = "//div[@aria-label='Checkbox'][.//p/div/div[contains(text(),'Out Of Stock')]]")
     WebElement outOfStock;
 
     @FindBy(xpath = "//button[@data-testid='plp-filter-apply-button']")
@@ -58,6 +65,14 @@ public class SearchResultsPage {
 
     public void clickAllFilters(){
         allFilters.click();
+    }
+
+    public void clickSortBy(){
+        sortBy.click();
+    }
+
+    public void clickHighToLow(){
+        highToLow.click();
     }
 
     public void clickStorage(){
@@ -79,7 +94,9 @@ public class SearchResultsPage {
 
     public void enterMaxPrice(String maxPrice){
         input2.clear();
-        input2.sendKeys(maxPrice+Keys.ENTER);
+        input2.sendKeys(maxPrice);
+        Actions action = new Actions(driver);
+        action.click(input1).perform();
     }
 
     public void clickAvailablity(){
@@ -91,20 +108,13 @@ public class SearchResultsPage {
     }
 
     public void clickApply(){
-//        apply.click();
-//        wait.until(ExpectedConditions.elementToBeClickable(apply));
         apply.click();
     }
 
     public int getFirstProductPrice() {
-
-        String priceText = firstProductPrice.getText()
-                .replace("Deal Price:", "")
-                .replace("₹", "")
-                .replace(",", "")
+        String priceText = firstProductPrice.getAttribute("textContent")
+                .replaceAll("[^0-9]","")
                 .trim();
-
         return Integer.parseInt(priceText);
     }
-
 }

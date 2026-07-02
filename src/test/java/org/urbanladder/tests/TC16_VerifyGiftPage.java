@@ -7,7 +7,7 @@ import test.java.basetest.BaseTest;
 
 import java.util.Set;
 
-public class TC18_NavigateGiftPage extends BaseTest {
+public class TC16_VerifyGiftPage extends BaseTest {
     @Test
     public void navigateToGiftCardPage(){
         SearchResultsPage searchResultsPage = new SearchResultsPage(driver);
