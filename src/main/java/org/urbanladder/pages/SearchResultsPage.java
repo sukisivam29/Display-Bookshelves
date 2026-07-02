@@ -49,6 +49,9 @@ public class SearchResultsPage {
     @FindBy(xpath = "//button[@data-testid='plp-filter-apply-button']")
     WebElement apply;
 
+    @FindBy(xpath = "(//span[contains(text(),'Deal Price')])[1]")
+    private WebElement firstProductPrice;
+
     public void clickOnGiftCardsPage(){
         giftCards.click();
     }
@@ -92,4 +95,16 @@ public class SearchResultsPage {
 //        wait.until(ExpectedConditions.elementToBeClickable(apply));
         apply.click();
     }
+
+    public int getFirstProductPrice() {
+
+        String priceText = firstProductPrice.getText()
+                .replace("Deal Price:", "")
+                .replace("₹", "")
+                .replace(",", "")
+                .trim();
+
+        return Integer.parseInt(priceText);
+    }
+
 }
