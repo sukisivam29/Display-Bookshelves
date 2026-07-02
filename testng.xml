@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite" verbose="1">
+    <!--    <parameter name="" value=""></parameter>-->
+    <test name="TC1">
+        <classes>
+            <class name="test.java.org.urbanladder.tests.TC18_NavigateGiftPage"/>
+            <class name="test.java.org.urbanladder.tests.TC19_VerifyDesignTemplate"/>
+            <class name="test.java.org.urbanladder.tests.TC1_verifyBookshelvesFilter"/>
+            <class name="test.java.org.urbanladder.tests.TC5_verifyStudyChairFilter"/>
+            <class name="test.java.org.urbanladder.tests.TC11_VerifyNewArrivals"/>
+            <class name="test.java.org.urbanladder.tests.TC12_VerifyOasisCollection"/>\
+            <class name="test.java.org.urbanladder.tests.TC13_VerifyOasisCollectionSubMenu"/>
+        </classes>
+    </test>
+</suite>
