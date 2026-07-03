@@ -58,11 +58,11 @@ public class SearchResultsPage {
     @FindBy(xpath = "//button[@data-testid='plp-filter-apply-button']")
     WebElement apply;
 
-    @FindBy(xpath = "(//div[@class='MniCX']//div[@class='HOVM7']//div/div[@role='link'])")
-    List<WebElement> productList;
+//    @FindBy(xpath = "(//div[@class='MniCX']//div[@class='HOVM7']//div/div[@role='link'])")
+//    List<WebElement> productList;
 
-    @FindBy(xpath = "(//div[@class='MniCX']//div[@class='HOVM7']//div/div[@role='link'])[1]")
-    private WebElement firstProductPrice;
+    @FindBy(xpath = "(//div[@class='MniCX']//div[@class='HOVM7']//div/div[@role='link']/div[@class='o0mbO']//span[@class='sr-only'])[1]")
+    WebElement firstProductPrice;
 
     public void clickOnGiftCardsPage(){
         giftCards.click();
