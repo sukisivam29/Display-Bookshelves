@@ -1,5 +1,6 @@
 package main.java.org.urbanladder.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,6 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 public class SearchResultsPage {
     WebDriver driver;
@@ -56,7 +58,10 @@ public class SearchResultsPage {
     @FindBy(xpath = "//button[@data-testid='plp-filter-apply-button']")
     WebElement apply;
 
-    @FindBy(xpath = "(//span[contains(text(),'Deal Price')])[1]")
+    @FindBy(xpath = "(//div[@class='MniCX']//div[@class='HOVM7']//div/div[@role='link'])")
+    List<WebElement> productList;
+
+    @FindBy(xpath = "(//div[@class='MniCX']//div[@class='HOVM7']//div/div[@role='link'])[1]")
     private WebElement firstProductPrice;
 
     public void clickOnGiftCardsPage(){
@@ -116,5 +121,12 @@ public class SearchResultsPage {
                 .replaceAll("[^0-9]","")
                 .trim();
         return Integer.parseInt(priceText);
+    }
+    //div[@class='o0mb0']
+    public boolean verifyProductPrice(){
+        for (WebElement product : productList){
+            WebElement price = product.findElement(By.xpath(""));
+        }
+        return false;
     }
 }

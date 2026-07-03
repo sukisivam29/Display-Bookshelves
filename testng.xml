@@ -5,11 +5,13 @@
     <test name="Testing Urbanladder">
         <classes>
             <class name="test.java.org.urbanladder.tests.TC1_VerifyBookshelvesFilter"/>
-            <class name="test.java.org.urbanladder.tests.TC5_VerifyStudyChairFilter"/>
+            <class name="test.java.org.urbanladder.tests.TC6_VerifyStudyChairFilter"/>
             <class name="test.java.org.urbanladder.tests.TC11_VerifyNewArrivals"/>
             <class name="test.java.org.urbanladder.tests.TC12_VerifyOasisCollection"/>
             <class name="test.java.org.urbanladder.tests.TC13_VerifyOasisCollectionSubMenu"/>
-            <class name="test.java.org.urbanladder.tests.TC19_VerifyDesignTemplate"/>
+            <class name="test.java.org.urbanladder.tests.TC16_VerifyGiftPage"/>
+            <class name="test.java.org.urbanladder.tests.TC17_VerifyGiftCardTheme"/>
+            <class name="test.java.org.urbanladder.tests.TC17_VerifyDesignTemplate"/>
         </classes>
     </test>
 </suite>

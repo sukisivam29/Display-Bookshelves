@@ -6,8 +6,6 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import test.java.basetest.BaseTest;
 
-import java.util.NoSuchElementException;
-
 public class TC1_VerifyBookshelvesFilter extends BaseTest {
     @Test
     public void verifyAllFiltersForBookshelves(){

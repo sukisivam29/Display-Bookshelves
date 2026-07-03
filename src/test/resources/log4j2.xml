@@ -3,27 +3,22 @@
 <Configuration status="WARN">
 
     <Appenders>
-
         <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout
                     pattern="%d{dd-MM-yyyy HH:mm:ss} %-5level %c{1} - %msg%n"/>
         </Console>
-
         <File name="File"
               fileName="reports/Execution.log"
               append="true">
             <PatternLayout pattern="%d{dd-MM-yyyy HH:mm:ss} %-5level %c{1} - %msg%n"/>
         </File>
-
     </Appenders>
 
     <Loggers>
-
         <Root level="info">
             <AppenderRef ref="Console"/>
             <AppenderRef ref="File"/>
         </Root>
-
     </Loggers>
 
 </Configuration>

@@ -21,6 +21,9 @@ public class UrbanLadderHomePage {
         PageFactory.initElements(driver, this);
     }
 
+    @FindBy(xpath = "//a[text()='Gift Cards']")
+    private WebElement giftCards;
+
     @FindBy(id = "searchInput")
     private WebElement searchBox;
 
@@ -44,6 +47,10 @@ public class UrbanLadderHomePage {
 
 //    @FindBy(id = "close")
 //    private WebElement popUpClose;
+
+    public void clickOnGiftCardsPage(){
+        giftCards.click();
+    }
 
     public void enterSearch(String searchInput) {
         searchBox.sendKeys(searchInput + Keys.ENTER);

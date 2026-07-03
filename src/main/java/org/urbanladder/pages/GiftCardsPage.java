@@ -44,10 +44,10 @@ public class GiftCardsPage {
     @FindBy(id = "deliveryModeANY")
     WebElement deliveryModeBoth;
 
-    @FindBy(xpath = "//div[@data-index='0']")
+    @FindBy(xpath = "(//*[@id='design-theme']//img)[1]")
     WebElement birthdayTheme;
 
-    @FindBy(xpath = "//div[@data-index='2']")
+    @FindBy(xpath = "(//*[@id='design-theme']//img)[3]")
     WebElement anniversaryTheme;
 
     @FindBy(xpath = "(//input[@id='firstname'])[1]")

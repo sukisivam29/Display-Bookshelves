@@ -6,12 +6,18 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import test.java.basetest.BaseTest;
 
-public class TC5_VerifyStudyChairFilter extends BaseTest {
+public class TC6_VerifyStudyChairFilter extends BaseTest {
     @Test
     public void verifyAllFilterForStudyChair(){
         UrbanLadderHomePage urbanLadderHomePage = new UrbanLadderHomePage(driver);
         SearchResultsPage searchResultsPage = new SearchResultsPage(driver);
         SoftAssert softAssert = new SoftAssert();
+        try {
+            urbanLadderHomePage.handlePopUp();
+        }
+        catch (Exception e){
+            logger.info("No pop up found");
+        }
         urbanLadderHomePage.enterSearch(properties.getProperty("search.query2"));
         searchResultsPage.clickAllFilters();
         searchResultsPage.clickPrice();
