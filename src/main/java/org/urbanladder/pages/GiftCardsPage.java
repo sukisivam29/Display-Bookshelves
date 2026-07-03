@@ -165,4 +165,9 @@ public class GiftCardsPage {
         return birthdayTheme.isDisplayed();
     }
 
+    public boolean isBirthdayThemeSelected() {
+        String classes = birthdayTheme.getAttribute("class");
+        return classes.contains("border-secondary")
+                && classes.contains("p-1");
+    }
 }
