@@ -31,11 +31,13 @@ public class BaseTest {
         driver.get(properties.getProperty("base.url"));
         driver.manage().window().maximize();
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        logger.info("Spinning up Resources");
     }
 
     @AfterMethod
     public void tearDown() {
-//        driver.quit();
+        driver.quit();
+        logger.info("Closing resources");
     }
 
     public static void takeScreenShot(WebDriver driver, String fileName) throws IOException {

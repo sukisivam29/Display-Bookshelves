@@ -23,3 +23,60 @@
 02-07-2026 17:57:16 INFO  TC12_VerifyOasisCollection - TC_12 Execution Completed
 02-07-2026 18:45:44 INFO  TC1_VerifyBookshelvesFilter - Searching for Bookshelves
 02-07-2026 18:45:47 INFO  TC1_VerifyBookshelvesFilter - TC_1 Execution Completed
+03-07-2026 11:12:09 INFO  TC1_VerifyBookshelvesFilter - Searching for Bookshelves
+03-07-2026 11:12:12 INFO  TC1_VerifyBookshelvesFilter - TC_1 Execution Completed
+03-07-2026 11:13:41 INFO  TC11_VerifyNewArrivals - TC_11 Execution Completed
+03-07-2026 11:14:25 INFO  TC12_VerifyOasisCollection - TC_12 Execution Completed
+03-07-2026 11:19:13 INFO  TC11_VerifyNewArrivals - TC_11 Execution Completed
+03-07-2026 11:19:24 INFO  TC12_VerifyOasisCollection - TC_12 Execution Completed
+03-07-2026 11:19:37 INFO  TC1_VerifyBookshelvesFilter - No pop up found
+03-07-2026 11:19:39 INFO  TC1_VerifyBookshelvesFilter - Searching for Bookshelves
+03-07-2026 11:46:58 INFO  TC1_VerifyBookshelvesFilter - Searching for Bookshelves
+03-07-2026 11:46:59 INFO  TC1_VerifyBookshelvesFilter - TC_1 Execution Completed
+03-07-2026 11:49:54 INFO  TC12_VerifyOasisCollection - TC_12 Execution Completed
+03-07-2026 11:49:54 INFO  TC11_VerifyNewArrivals - No pop up found
+03-07-2026 11:49:55 INFO  TC1_VerifyBookshelvesFilter - No pop up found
+03-07-2026 11:49:57 INFO  TC1_VerifyBookshelvesFilter - Searching for Bookshelves
+03-07-2026 11:50:07 INFO  TC11_VerifyNewArrivals - TC_11 Execution Completed
+03-07-2026 11:54:34 INFO  TC12_VerifyOasisCollection - TC_12 Execution Completed
+03-07-2026 11:54:37 INFO  TC11_VerifyNewArrivals - No pop up found
+03-07-2026 11:54:38 INFO  TC1_VerifyBookshelvesFilter - No pop up found
+03-07-2026 11:54:38 INFO  TC1_VerifyBookshelvesFilter - Searching for Bookshelves
+03-07-2026 11:54:40 INFO  TC11_VerifyNewArrivals - TC_11 Execution Completed
+03-07-2026 14:51:03 INFO  TC1_VerifyBookshelvesFilter - Searching for Bookshelves
+03-07-2026 14:51:53 INFO  TC1_VerifyBookshelvesFilter - Searching for Bookshelves
+03-07-2026 14:51:56 INFO  TC1_VerifyBookshelvesFilter - TC_1 Execution Completed
+03-07-2026 15:03:39 INFO  TC6_VerifyStudyChairFilter - TC_5 Execution Completed
+03-07-2026 15:11:12 INFO  TC6_VerifyStudyChairFilter - No pop up found
+03-07-2026 15:11:15 INFO  TC6_VerifyStudyChairFilter - TC_6 Execution Completed
+03-07-2026 15:15:31 INFO  TC6_VerifyStudyChairFilter - No pop up found
+03-07-2026 15:15:33 INFO  TC6_VerifyStudyChairFilter - TC_6 Execution Completed
+03-07-2026 15:17:27 INFO  TC6_VerifyStudyChairFilter - TC_6 Execution Completed
+03-07-2026 15:18:36 INFO  TC11_VerifyNewArrivals - TC_11 Execution Completed
+03-07-2026 15:27:01 INFO  TC1_VerifyBookshelvesFilter - Searching for Bookshelves
+03-07-2026 15:27:03 INFO  TC1_VerifyBookshelvesFilter - TC_1 Execution Completed
+03-07-2026 15:29:55 INFO  TC13_VerifyOasisCollectionSubMenu - TC_13 Execution Completed
+03-07-2026 15:31:08 INFO  TC12_VerifyOasisCollection - No pop up found
+03-07-2026 15:31:09 INFO  TC12_VerifyOasisCollection - TC_12 Execution Completed
+03-07-2026 15:33:43 INFO  TC11_VerifyNewArrivals - No pop up found
+03-07-2026 15:33:53 INFO  TC1_VerifyBookshelvesFilter - No pop up found
+03-07-2026 15:34:03 INFO  TC13_VerifyOasisCollectionSubMenu - No pop up found
+03-07-2026 15:34:13 INFO  TC6_VerifyStudyChairFilter - No pop up found
+03-07-2026 15:34:14 INFO  TC1_VerifyBookshelvesFilter - Searching for Bookshelves
+03-07-2026 15:34:24 INFO  TC12_VerifyOasisCollection - No pop up found
+03-07-2026 15:34:29 INFO  TC12_VerifyOasisCollection - TC_12 Execution Completed
+03-07-2026 15:34:29 INFO  TC13_VerifyOasisCollectionSubMenu - TC_13 Execution Completed
+03-07-2026 15:36:10 INFO  TC17_VerifyDesignTemplate - No pop up found
+03-07-2026 15:38:47 INFO  TC12_VerifyOasisCollection - No pop up found
+03-07-2026 15:38:47 INFO  TC1_VerifyBookshelvesFilter - No pop up found
+03-07-2026 15:38:47 INFO  TC6_VerifyStudyChairFilter - No pop up found
+03-07-2026 15:38:47 INFO  TC13_VerifyOasisCollectionSubMenu - No pop up found
+03-07-2026 15:38:48 INFO  TC12_VerifyOasisCollection - TC_12 Execution Completed
+03-07-2026 15:38:48 INFO  TC1_VerifyBookshelvesFilter - Searching for Bookshelves
+03-07-2026 15:39:35 INFO  TC17_VerifyDesignTemplate - No pop up found
+03-07-2026 15:42:31 INFO  TC1_VerifyBookshelvesFilter - Searching for Bookshelves
+03-07-2026 15:42:33 INFO  TC1_VerifyBookshelvesFilter - TC_1 Execution Completed
+03-07-2026 15:43:22 INFO  TC6_VerifyStudyChairFilter - TC_6 Execution Completed
+03-07-2026 15:44:30 INFO  TC11_VerifyNewArrivals - TC_11 Execution Completed
+03-07-2026 15:44:59 INFO  TC12_VerifyOasisCollection - TC_12 Execution Completed
+03-07-2026 15:45:28 INFO  TC13_VerifyOasisCollectionSubMenu - TC_13 Execution Completed

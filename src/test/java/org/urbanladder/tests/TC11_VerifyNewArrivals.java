@@ -10,12 +10,18 @@ public class TC11_VerifyNewArrivals extends BaseTest {
     public void verifyNewArrivalsMenuVisible() {
         UrbanLadderHomePage urbanLadderHomePage = new UrbanLadderHomePage(driver);
         SoftAssert softAssert = new SoftAssert();
+        try {
+            urbanLadderHomePage.handlePopUp();
+        }
+        catch (Exception e){
+            logger.info("No pop up found");
+        }
 
         softAssert.assertTrue(urbanLadderHomePage.newArrivalsButtonIsVisible());
 
         urbanLadderHomePage.hoverOnNewArrivals();
-        logger.info("TC_11 Execution Completed");
         softAssert.assertTrue(urbanLadderHomePage.newArrivalsMenuIsDisplayed());
+        logger.info("TC_11 Execution Completed");
 
         softAssert.assertAll();
     }

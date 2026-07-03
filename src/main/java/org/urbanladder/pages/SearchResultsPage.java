@@ -123,10 +123,10 @@ public class SearchResultsPage {
         return Integer.parseInt(priceText);
     }
     //div[@class='o0mb0']
-    public boolean verifyProductPrice(){
-        for (WebElement product : productList){
-            WebElement price = product.findElement(By.xpath(""));
-        }
-        return false;
-    }
+//    public boolean verifyProductPrice(){
+//        for (WebElement product : productList){
+//            WebElement price = product.findElement(By.xpath(""));
+//        }
+//        return false;
+//    }
 }
