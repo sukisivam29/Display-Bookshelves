@@ -27,7 +27,7 @@ public class TC16_VerifyGiftPage extends BaseTest {
         }
         System.out.println(driver.getTitle());
         String currentUrl = driver.getCurrentUrl();
-        String expectedUrl = properties.getProperty("giftpage.url");
+        String expectedUrl = properties.getProperty("giftPage.url");
         logger.info("TC_16  Execution Completed");
         Assert.assertEquals(currentUrl, expectedUrl);
     }

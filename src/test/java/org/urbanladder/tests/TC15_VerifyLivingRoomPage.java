@@ -1,14 +1,16 @@
 package test.java.org.urbanladder.tests;
 
+import main.java.org.urbanladder.pages.OasisCollectionPage;
 import main.java.org.urbanladder.pages.UrbanLadderHomePage;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import test.java.basetest.BaseTest;
 
-public class TC15_VerifyOasisCollectionPage extends BaseTest {
+public class TC15_VerifyLivingRoomPage extends BaseTest {
     @Test
-    public void verifyOasisCollectionPage() {
+    public void verifyLivingRoomPage() {
         UrbanLadderHomePage urbanLadderHomePage = new UrbanLadderHomePage(driver);
+        OasisCollectionPage oasisCollectionPage = new OasisCollectionPage(driver);
         SoftAssert softAssert = new SoftAssert();
 
         try {
@@ -18,14 +20,15 @@ public class TC15_VerifyOasisCollectionPage extends BaseTest {
             logger.info("No pop up found");
         }
 
-        String currentWindow = driver.getWindowHandle();
         urbanLadderHomePage.hoverOnNewArrivals();
-        String oasisButtonUrl = urbanLadderHomePage.oasisCollectionURL();
-        softAssert.assertEquals(oasisButtonUrl, properties.getProperty("oasis.url"));
         urbanLadderHomePage.clickOasisCollectionButton();
+        softAssert.assertTrue(oasisCollectionPage.isLivingRoomVisible());
+        oasisCollectionPage.clickLivingRoomButton();
 
-        String oasisCollectionPageTitle = driver.getTitle();
-        softAssert.assertEquals(properties.getProperty("oasis.title"), oasisCollectionPageTitle, "Current Page is not Oasis Collection Page");
+        String livingRoomPageUrl = driver.getCurrentUrl();
+        softAssert.assertEquals(livingRoomPageUrl, properties.getProperty("livingRoom.url"));
+        String livingRoomTitle = driver.getTitle();
+        softAssert.assertEquals(livingRoomTitle, properties.getProperty("livingRoom.title"));
 
         logger.info("TC_15 Execution Completed");
     }
