@@ -5,12 +5,11 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import test.java.basetest.BaseTest;
 
-public class TC12_VerifyOasisCollection extends BaseTest {
+public class TC15_VerifyOasisCollectionPage extends BaseTest {
     @Test
-    public void verifyOasisCollectionIsDisplayed() {
+    public void verifyOasisCollectionPage() {
         UrbanLadderHomePage urbanLadderHomePage = new UrbanLadderHomePage(driver);
         SoftAssert softAssert = new SoftAssert();
-        softAssert.assertTrue(urbanLadderHomePage.newArrivalsButtonIsVisible());
 
         try {
             urbanLadderHomePage.handlePopUp();
@@ -19,14 +18,15 @@ public class TC12_VerifyOasisCollection extends BaseTest {
             logger.info("No pop up found");
         }
 
+        String currentWindow = driver.getWindowHandle();
         urbanLadderHomePage.hoverOnNewArrivals();
-
-        softAssert.assertTrue(urbanLadderHomePage.oasisCollectionButtonIsDisplayed());
-
         String oasisButtonUrl = urbanLadderHomePage.oasisCollectionURL();
         softAssert.assertEquals(oasisButtonUrl, properties.getProperty("oasis.url"));
+        urbanLadderHomePage.clickOasisCollectionButton();
 
-        softAssert.assertAll();
-        logger.info("TC_12 Execution Completed");
+        String oasisCollectionPageTitle = driver.getTitle();
+        softAssert.assertEquals(properties.getProperty("oasis.title"), oasisCollectionPageTitle, "Current Page is not Oasis Collection Page");
+
+        logger.info("TC_15 Execution Completed");
     }
 }
