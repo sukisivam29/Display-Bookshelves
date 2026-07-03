@@ -14,7 +14,7 @@ public class TC11_VerifyNewArrivals extends BaseTest {
             urbanLadderHomePage.handlePopUp();
         }
         catch (Exception e){
-            logger.info("No pop up found");
+            logger.info("No pop found");
         }
 
         softAssert.assertTrue(urbanLadderHomePage.newArrivalsButtonIsVisible());

@@ -58,11 +58,16 @@ public class SearchResultsPage {
     @FindBy(xpath = "//button[@data-testid='plp-filter-apply-button']")
     WebElement apply;
 
-//    @FindBy(xpath = "(//div[@class='MniCX']//div[@class='HOVM7']//div/div[@role='link'])")
-//    List<WebElement> productList;
+   @FindBy(xpath = "(//div[@class='MniCX']//div[@class='HOVM7']//div/div[@role='link'])")
+   List<WebElement> productList;
 
     @FindBy(xpath = "(//div[@class='MniCX']//div[@class='HOVM7']//div/div[@role='link']/div[@class='o0mbO']//span[@class='sr-only'])[1]")
     WebElement firstProductPrice;
+
+
+    @FindBy(xpath = "//div[@class='ug1_C']")
+    List<WebElement> productPrices;
+
 
     public void clickOnGiftCardsPage(){
         giftCards.click();
@@ -122,6 +127,18 @@ public class SearchResultsPage {
                 .trim();
         return Integer.parseInt(priceText);
     }
+
+
+    public List<WebElement> getProductList() {
+        return productList;
+    }
+
+    public List<WebElement> getProductPrices() {
+        return productPrices;
+    }
+
+
+
     //div[@class='o0mb0']
 //    public boolean verifyProductPrice(){
 //        for (WebElement product : productList){

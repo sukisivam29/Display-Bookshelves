@@ -80,3 +80,16 @@
 03-07-2026 15:44:30 INFO  TC11_VerifyNewArrivals - TC_11 Execution Completed
 03-07-2026 15:44:59 INFO  TC12_VerifyOasisCollection - TC_12 Execution Completed
 03-07-2026 15:45:28 INFO  TC13_VerifyOasisCollectionSubMenu - TC_13 Execution Completed
+03-07-2026 15:54:09 INFO  TC11_VerifyNewArrivals - TC_11 Execution Completed
+03-07-2026 15:55:09 INFO  TC12_VerifyOasisCollection - TC_12 Execution Completed
+03-07-2026 15:57:33 INFO  TC11_VerifyNewArrivals - TC_11 Execution Completed
+03-07-2026 16:01:50 INFO  TC11_VerifyNewArrivals - Spinning up Resources
+03-07-2026 16:01:57 INFO  TC11_VerifyNewArrivals - TC_11 Execution Completed
+03-07-2026 16:02:02 INFO  TC11_VerifyNewArrivals - Closing resources
+03-07-2026 16:09:52 INFO  TC2_VerifyNameAndPriceVisibility - Spinning up Resources
+03-07-2026 16:09:57 INFO  TC2_VerifyNameAndPriceVisibility - All filters applied successfully
+03-07-2026 16:09:57 INFO  TC2_VerifyNameAndPriceVisibility - First Product Name : Leto Engineered Wood Bookshelf in Melamine Finish
+03-07-2026 16:09:57 INFO  TC2_VerifyNameAndPriceVisibility - First Product Price : ₹8,499
+03-07-2026 16:09:57 INFO  TC2_VerifyNameAndPriceVisibility - First Price HTML : <div class="ug1_C"><span class="sr-only">Deal Price: ₹8,499</span><span class="ESGub" aria-hidden="true"><div class="UYQNp">₹8,499</div></span></div>
+03-07-2026 16:09:57 INFO  TC2_VerifyNameAndPriceVisibility - TC_2 Execution Completed
+03-07-2026 16:10:03 INFO  TC2_VerifyNameAndPriceVisibility - Closing resources
