@@ -20,6 +20,7 @@ public class TC17_VerifyGiftCardTheme extends BaseTest {
         giftCardsPage.selectDesignTheme(properties.getProperty("cardtheme1"));
         logger.info("TC_17 Execution Completed");
         SoftAssert softAssert = new SoftAssert();
-        softAssert.assertTrue(giftCardsPage.isBirthdayThemeSelected(),"Birthday theme is selected successfully");
+        softAssert.assertTrue(giftCardsPage.isBirthdayThemeSelected(),"Birthday theme is not selected");
+
     }
 }
