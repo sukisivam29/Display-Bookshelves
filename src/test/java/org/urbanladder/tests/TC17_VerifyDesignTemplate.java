@@ -6,6 +6,8 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import test.java.basetest.BaseTest;
 
+import java.util.Set;
+
 public class TC17_VerifyDesignTemplate extends BaseTest {
 
     @Test
@@ -18,9 +20,18 @@ public class TC17_VerifyDesignTemplate extends BaseTest {
         catch (Exception e){
             logger.info("No pop up found");
         }
+        String currentWindowId = driver.getWindowHandle();
+        urbanLadderHomePage.clickOnGiftCardsPage();
+        Set<String> windows = driver.getWindowHandles();
+        for(String window : windows){
+            if(!currentWindowId.equals(window)){
+                driver.switchTo().window(window);
+            }
+        }
         String theme = properties.getProperty("theme");
+        giftCardsPage.scrollToDesignTheme();
         giftCardsPage.selectDesignTheme(theme);
-        logger.info("TC_19 Execution Completed");
+        logger.info("TC_17 Execution Completed");
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertTrue(
                 giftCardsPage.isBirthdayThemeDisplayed(),

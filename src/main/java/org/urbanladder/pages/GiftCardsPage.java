@@ -1,20 +1,26 @@
 package main.java.org.urbanladder.pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class GiftCardsPage {
 
     WebDriver driver;
+    WebDriverWait wait;
 
     public GiftCardsPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     @FindBy(id = "denomination")
@@ -44,10 +50,10 @@ public class GiftCardsPage {
     @FindBy(id = "deliveryModeANY")
     WebElement deliveryModeBoth;
 
-    @FindBy(xpath = "(//*[@id='design-theme']//img)[1]")
+    @FindBy(xpath = "(//div[@id='design-theme']//img)[1]")
     WebElement birthdayTheme;
 
-    @FindBy(xpath = "(//*[@id='design-theme']//img)[3]")
+    @FindBy(xpath = "(//div[@id='design-theme']//img)[3]")
     WebElement anniversaryTheme;
 
     @FindBy(xpath = "(//input[@id='firstname'])[1]")
@@ -119,8 +125,8 @@ public class GiftCardsPage {
 
     public void selectDesignTheme(String theme){
         switch (theme.toLowerCase()){
-            case "birthday" : birthdayTheme.click(); break;
-            case "anniversary" : anniversaryTheme.click(); break;
+            case "birthday" : wait.until(ExpectedConditions.elementToBeClickable(birthdayTheme)).click(); break;
+            case "anniversary" : wait.until(ExpectedConditions.elementToBeClickable(anniversaryTheme)).click(); break;
             default: throw new IllegalArgumentException("Invalid design theme: "+theme);
         }
     }
@@ -163,6 +169,11 @@ public class GiftCardsPage {
 
     public boolean isBirthdayThemeDisplayed() {
         return birthdayTheme.isDisplayed();
+    }
+
+    public void scrollToDesignTheme() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", birthdayTheme);
     }
 
 }
