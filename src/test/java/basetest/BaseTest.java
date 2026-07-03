@@ -22,7 +22,7 @@ public class BaseTest {
 
     @BeforeMethod
     public void setDriver() throws IOException {
-        logger = main.java.org.urbanladder.utils.LoggerManager.getLogger(this.getClass());;
+        logger = main.java.org.urbanladder.utils.LoggerManager.getLogger(this.getClass());
         driver = new ChromeDriver();
         FileReader file = new FileReader(".//src//test//resources//config.properties");
         properties = new Properties();

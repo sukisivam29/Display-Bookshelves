@@ -1,9 +1,6 @@
 package main.java.org.urbanladder.pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -73,8 +70,9 @@ public class SearchResultsPage {
         giftCards.click();
     }
 
-    public void clickAllFilters(){
-        allFilters.click();
+    public void clickAllFilters() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", allFilters);
     }
 
     public void clickSortBy(){
