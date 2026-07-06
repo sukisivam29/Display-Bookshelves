@@ -48,12 +48,4 @@ public class BaseTest {
     public void setupExtentReport() {
         extent = ExtentReportManager.getExtentReports();
     }
-
-    public static void takeScreenShot(WebDriver driver, String fileName) throws IOException {
-        File screenshotsDir = new File(System.getProperty("user.dir") + "/screenshots");
-        TakesScreenshot ts = (TakesScreenshot) driver;
-        File src = ts.getScreenshotAs(OutputType.FILE);
-        File destination = new File(screenshotsDir, fileName + ".png");
-        FileHandler.copy(src, destination);
-    }
 }

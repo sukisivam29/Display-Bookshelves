@@ -202,4 +202,68 @@ public class GiftCardsPage extends CodeUtilities {
         scrollToElement(paymentDetailsSection);
         previewGiftCard.click();
     }
+
+    public String getDenominationAmount() {
+        return denominationAmount.getAttribute("value");
+    }
+
+    public String getQuantity() {
+        return quantity.getAttribute("value");
+    }
+
+    public String getSenderFirstname() {
+        return senderFirstname.getAttribute("value");
+    }
+
+    public String getSenderLastname() {
+        return senderLastname.getAttribute("value");
+    }
+
+    public String getSenderEmail() {
+        return senderEmail.getAttribute("value");
+    }
+
+    public String getSenderMobile() {
+        return senderMobileNumber.getAttribute("value");
+    }
+
+    public String getReceiverFirstname() {
+        return receiverFirstname.getAttribute("value");
+    }
+
+    public String getReceiverLastname() {
+        return receiverLastname.getAttribute("value");
+    }
+
+    public String getReceiverEmail() {
+        return receiverEmail.getAttribute("value");
+    }
+
+    public String getReceiverMobile() {
+        return receiverMobileNumber.getAttribute("value");
+    }
+
+    public String getGiftMessage() {
+        return giftMessage.getAttribute("value");
+    }
+
+    public boolean isSendAsGiftSelected() {
+        return sendAsGiftButton.isSelected();
+    }
+
+    public boolean isBuyForSelfSelected() {
+        return buyForSelfButton.isSelected();
+    }
+
+    public boolean isEmailModeSelected() {
+        return deliveryModeEmail.isSelected();
+    }
+
+    public boolean isSmsModeSelected() {
+        return deliveryModeSMS.isSelected();
+    }
+
+    public boolean isBothModeSelected() {
+        return deliveryModeBoth.isSelected();
+    }
 }

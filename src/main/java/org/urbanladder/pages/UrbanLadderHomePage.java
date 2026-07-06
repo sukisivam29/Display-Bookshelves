@@ -26,9 +26,6 @@ public class UrbanLadderHomePage extends CodeUtilities {
     @FindBy(id = "searchInput")
     private WebElement searchBox;
 
-    @FindBy(xpath = "//a[text()='Gift Cards']")
-    private WebElement giftCardsButton;
-
     @FindBy(xpath = "//div[contains(@role, 'button')]/span[text()='New Arrivals']")
     private WebElement newArrivalsButton;
 
@@ -53,10 +50,6 @@ public class UrbanLadderHomePage extends CodeUtilities {
 
     public void enterSearch(String searchInput) {
         searchBox.sendKeys(searchInput + Keys.ENTER);
-    }
-
-    public void clickGiftCards() {
-        giftCardsButton.click();
     }
 
     public boolean newArrivalsButtonIsVisible() {

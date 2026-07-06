@@ -42,6 +42,17 @@ public class TC18_VerifyGiftCardDetails extends BaseTest {
         giftCardsPage.selectDeliveryOptions(deliveryOptions);
         giftCardsPage.selectModeOfDelivery(modeOfDelivery);
 
-        //Need to Add assertion
+        softAssert.assertEquals(
+                giftCardsPage.getDenominationAmount(),
+                denominationAmount,
+                "Denomination amount mismatch");
+
+        softAssert.assertEquals(
+                giftCardsPage.getQuantity(),
+                quantity,
+                "Quantity mismatch");
+
+        softAssert.assertAll();
+
     }
 }

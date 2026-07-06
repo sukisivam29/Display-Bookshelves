@@ -71,6 +71,93 @@ public class TC19_VerifySenderAndReceiverDetails extends BaseTest {
         giftCardsPage.enterGiftMessage(giftMessage);
 //        giftCardsPage.clickPreviewGiftCard();
 
-        //Need to Add Assertion
+        if(deliveryOptions.equalsIgnoreCase("gift")) {
+            softAssert.assertTrue(
+                    giftCardsPage.isSendAsGiftSelected(),
+                    "Send As Gift option is not selected");
+        } else {
+            softAssert.assertTrue(
+                    giftCardsPage.isBuyForSelfSelected(),
+                    "Buy For Self option is not selected");
+        }
+
+        if(modeOfDelivery.equalsIgnoreCase("email")) {
+            softAssert.assertTrue(
+                    giftCardsPage.isEmailModeSelected(),
+                    "Email mode is not selected");
+        }
+        else if(modeOfDelivery.equalsIgnoreCase("sms")) {
+            softAssert.assertTrue(
+                    giftCardsPage.isSmsModeSelected(),
+                    "SMS mode is not selected");
+        }
+        else {
+            softAssert.assertTrue(
+                    giftCardsPage.isBothModeSelected(),
+                    "Both mode is not selected");
+        }
+
+        softAssert.assertEquals(
+                giftCardsPage.getSenderFirstname(),
+                senderFirstName,
+                "Sender First Name mismatch");
+
+        softAssert.assertEquals(
+                giftCardsPage.getSenderLastname(),
+                senderLastName,
+                "Sender Last Name mismatch");
+
+        softAssert.assertEquals(
+                giftCardsPage.getSenderEmail(),
+                senderEmail,
+                "Sender Email mismatch");
+
+        softAssert.assertEquals(
+                giftCardsPage.getSenderMobile(),
+                senderMobile,
+                "Sender Mobile mismatch");
+
+        if(deliveryOptions.equals("gift")) {
+            softAssert.assertEquals(
+                    giftCardsPage.getReceiverFirstname(),
+                    receiverFirstName,
+                    "Receiver First Name mismatch");
+
+            softAssert.assertEquals(
+                    giftCardsPage.getReceiverLastname(),
+                    receiverLastName,
+                    "Receiver Last Name mismatch");
+
+            if(modeOfDelivery.equals("email")) {
+                softAssert.assertEquals(
+                        giftCardsPage.getReceiverEmail(),
+                        receiverEmail,
+                        "Receiver Email mismatch");
+            }
+
+            if(modeOfDelivery.equals("sms")) {
+                softAssert.assertEquals(
+                        giftCardsPage.getReceiverMobile(),
+                        receiverMobile,
+                        "Receiver Mobile mismatch");
+            }
+
+            if(modeOfDelivery.equals("both")) {
+                softAssert.assertEquals(
+                        giftCardsPage.getReceiverEmail(),
+                        receiverEmail);
+
+                softAssert.assertEquals(
+                        giftCardsPage.getReceiverMobile(),
+                        receiverMobile);
+            }
+        }
+
+        softAssert.assertEquals(
+                giftCardsPage.getGiftMessage(),
+                giftMessage,
+                "Gift Message mismatch");
+
+        softAssert.assertAll();
     }
 }
