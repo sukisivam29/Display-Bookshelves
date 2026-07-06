@@ -13,12 +13,17 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.Properties;
+import com.aventstack.extentreports.ExtentReports;
+
+import main.java.org.urbanladder.utils.ExtentReportManager;
+
 
 public class BaseTest {
     protected static WebDriver driver;
     protected static WebDriverWait wait;
     public static Properties properties;
     protected Logger logger;
+    public static ExtentReports extent;
 
     @BeforeMethod
     public void setDriver() throws IOException {
@@ -36,6 +41,11 @@ public class BaseTest {
     @AfterMethod
     public void tearDown() {
 //        driver.quit();
+    }
+
+    @BeforeSuite
+    public void setupExtentReport() {
+        extent = ExtentReportManager.getExtentReports();
     }
 
     public static void takeScreenShot(WebDriver driver, String fileName) throws IOException {

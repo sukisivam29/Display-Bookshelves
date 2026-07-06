@@ -23,3 +23,27 @@
 02-07-2026 17:57:16 INFO  TC12_VerifyOasisCollection - TC_12 Execution Completed
 02-07-2026 18:45:44 INFO  TC1_VerifyBookshelvesFilter - Searching for Bookshelves
 02-07-2026 18:45:47 INFO  TC1_VerifyBookshelvesFilter - TC_1 Execution Completed
+03-07-2026 17:46:07 INFO  TC1_VerifyBookshelvesFilter - Searching for Bookshelves
+03-07-2026 17:46:10 INFO  TC1_VerifyBookshelvesFilter - TC_1 Execution Completed
+03-07-2026 17:51:32 INFO  TC1_VerifyBookshelvesFilter - Searching for Bookshelves
+03-07-2026 17:51:34 INFO  TC1_VerifyBookshelvesFilter - TC_1 Execution Completed
+03-07-2026 17:52:21 INFO  TC11_VerifyNewArrivals - TC_11 Execution Completed
+03-07-2026 17:52:50 INFO  TC12_VerifyOasisCollection - TC_12 Execution Completed
+03-07-2026 17:56:41 INFO  TC1_VerifyBookshelvesFilter - Searching for Bookshelves
+03-07-2026 17:56:44 INFO  TC1_VerifyBookshelvesFilter - TC_1 Execution Completed
+03-07-2026 18:06:41 INFO  TC1_VerifyBookshelvesFilter - Searching for Bookshelves
+03-07-2026 18:06:44 INFO  TC1_VerifyBookshelvesFilter - TC_1 Execution Completed
+03-07-2026 18:14:37 INFO  TC1_VerifyBookshelvesFilter - Searching for Bookshelves
+03-07-2026 18:14:39 INFO  TC1_VerifyBookshelvesFilter - TC_1 Execution Completed
+05-07-2026 23:51:46 INFO  TC1_VerifyBookshelvesFilter - No pop up found
+05-07-2026 23:51:47 INFO  TC1_VerifyBookshelvesFilter - Searching for Bookshelves
+05-07-2026 23:51:50 INFO  TC1_VerifyBookshelvesFilter - TC_1 Execution Completed
+06-07-2026 00:31:28 INFO  TC1_VerifyBookshelvesFilter - No pop up found
+06-07-2026 00:31:28 INFO  TC1_VerifyBookshelvesFilter - Searching for Bookshelves
+06-07-2026 00:31:31 INFO  TC1_VerifyBookshelvesFilter - TC_1 Execution Completed
+06-07-2026 00:34:32 INFO  TC1_VerifyBookshelvesFilter - No pop up found
+06-07-2026 00:34:32 INFO  TC1_VerifyBookshelvesFilter - Searching for Bookshelves
+06-07-2026 00:34:39 INFO  TC1_VerifyBookshelvesFilter - TC_1 Execution Completed
+06-07-2026 10:40:45 INFO  TC1_VerifyBookshelvesFilter - No pop up found
+06-07-2026 10:40:45 INFO  TC1_VerifyBookshelvesFilter - Searching for Bookshelves
+06-07-2026 10:40:47 INFO  TC1_VerifyBookshelvesFilter - TC_1 Execution Completed

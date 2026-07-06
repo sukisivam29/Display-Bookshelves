@@ -36,11 +36,7 @@ public class TC1_VerifyBookshelvesFilter extends BaseTest {
         int firstPrice = searchResultsPage.getFirstProductPrice();
         int maxPrice = Integer.parseInt(properties.getProperty("max.value"));
         logger.info("TC_1 Execution Completed");
-        softAssert.assertTrue(
-                firstPrice <= maxPrice,
-                "Highest priced bookshelf displayed is outside the filter range. Actual Price: "
-                        + firstPrice
-        );
+        softAssert.assertTrue(firstPrice <= maxPrice,"Highest priced bookshelf displayed is outside the filter range. Actual Price: "+firstPrice);
         softAssert.assertAll();
     }
 }
