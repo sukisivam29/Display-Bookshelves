@@ -8,6 +8,7 @@
             <class name="test.java.org.urbanladder.tests.TC2_VerifyNameAndPriceVisibility"/>
             <class name="test.java.org.urbanladder.tests.TC3_VerifyFirstThreeBookshelfDetails"/>
             <class name="test.java.org.urbanladder.tests.TC4_VerifySamePriceBookshelves"/>
+            <class name="test.java.org.urbanladder.tests.TC5_VerifyContactUsBulkOrderEmail"/>
             <class name="test.java.org.urbanladder.tests.TC6_VerifyStudyChairFilter"/>
             <class name="test.java.org.urbanladder.tests.TC11_VerifyNewArrivals"/>
             <class name="test.java.org.urbanladder.tests.TC12_VerifyOasisCollection"/>

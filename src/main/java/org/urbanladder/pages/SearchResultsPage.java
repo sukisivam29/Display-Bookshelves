@@ -1,6 +1,5 @@
 package main.java.org.urbanladder.pages;
 
-import main.java.org.urbanladder.utils.CodeUtilities;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -10,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.List;
 
-public class SearchResultsPage extends CodeUtilities {
+public class SearchResultsPage {
     WebDriver driver;
     WebDriverWait wait;
 
@@ -41,10 +40,10 @@ public class SearchResultsPage extends CodeUtilities {
     @FindBy(xpath = "//div[@aria-label='Price']")
     WebElement price;
 
-    @FindBy(xpath = "(//div[@id='inputfields']//input[@type='text'])[1]")
+    @FindBy(xpath="(//div[@id='inputfields']//input[@type='text'])[1]")
     WebElement input1;
 
-    @FindBy(xpath = "(//div[@id='inputfields']//input[@type='text'])[2]")
+    @FindBy(xpath="(//div[@id='inputfields']//input[@type='text'])[2]")
     WebElement input2;
 
     @FindBy(xpath = "//div[@aria-label='Availability']")
@@ -66,65 +65,72 @@ public class SearchResultsPage extends CodeUtilities {
     @FindBy(xpath = "//div[@class='ug1_C']")
     List<WebElement> productPrices;
 
+    @FindBy(linkText = "Contact Us")
+    WebElement contactUsLink;
 
-    public void clickOnGiftCardsPage() {
+    @FindBy(xpath = "//a[contains(@href,'bulk@urbanladder.com')]")
+    WebElement bulkOrderEmail;
+
+    public void clickOnGiftCardsPage(){
         giftCards.click();
     }
 
     public void clickAllFilters() {
-        clickElement(allFilters);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", allFilters);
     }
 
-    public void clickSortBy() {
+    public void clickSortBy(){
         sortBy.click();
     }
 
-    public void clickHighToLow() {
+    public void clickHighToLow(){
         highToLow.click();
     }
 
-    public void clickStorage() {
+    public void clickStorage(){
         storageType.click();
     }
 
-    public void clickOpenStorageType() {
+    public void clickOpenStorageType(){
         openStorageType.click();
     }
 
-    public void clickPrice() {
+    public void clickPrice(){
         price.click();
     }
 
-    public void enterMinPrice(String minPrice) {
+    public void enterMinPrice(String minPrice){
         input1.clear();
-        input1.sendKeys(minPrice + Keys.ENTER);
+        input1.sendKeys(minPrice+ Keys.ENTER);
     }
 
-    public void enterMaxPrice(String maxPrice) {
+    public void enterMaxPrice(String maxPrice){
         input2.clear();
         input2.sendKeys(maxPrice);
         Actions action = new Actions(driver);
         action.click(input1).perform();
     }
 
-    public void clickAvailablity() {
+    public void clickAvailablity(){
         availability.click();
     }
 
-    public void clickOutOfStock() {
+    public void clickOutOfStock(){
         outOfStock.click();
     }
 
-    public void clickApply() {
+    public void clickApply(){
         apply.click();
     }
 
     public int getFirstProductPrice() {
         String priceText = firstProductPrice.getAttribute("textContent")
-                .replaceAll("[^0-9]", "")
+                .replaceAll("[^0-9]","")
                 .trim();
         return Integer.parseInt(priceText);
     }
+
 
     public List<WebElement> getProductList() {
         return productList;
@@ -134,11 +140,12 @@ public class SearchResultsPage extends CodeUtilities {
         return productPrices;
     }
 
-    //div[@class='o0mb0']
-//    public boolean verifyProductPrice(){
-//        for (WebElement product : productList){
-//            WebElement price = product.findElement(By.xpath(""));
-//        }
-//        return false;
-//    }
+    public void clickContactUs() {
+        contactUsLink.click();
+    }
+
+    public String getBulkOrderEmail() {
+        return bulkOrderEmail.getText();
+    }
+
 }
