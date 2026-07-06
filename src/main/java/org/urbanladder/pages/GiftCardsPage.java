@@ -1,6 +1,6 @@
 package main.java.org.urbanladder.pages;
 
-import org.openqa.selenium.JavascriptExecutor;
+import main.java.org.urbanladder.utils.CodeUtilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,7 +12,7 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class GiftCardsPage {
+public class GiftCardsPage extends CodeUtilities {
 
     WebDriver driver;
     WebDriverWait wait;
@@ -89,7 +89,7 @@ public class GiftCardsPage {
     @FindBy(xpath = "//div[contains(@class,'payment-details-section')]")
     WebElement paymentDetailsSection;
 
-    public void enterDenominationAmount(String amount){
+    public void enterDenominationAmount(String amount) {
         try {
             denominationAmount.sendKeys(amount);
         } catch (Exception e) {
@@ -97,25 +97,29 @@ public class GiftCardsPage {
         }
     }
 
-    public void enterQuantity(String quantityOfCards){
+    public void enterQuantity(String quantityOfCards) {
         quantity.sendKeys(quantityOfCards);
     }
 
-    public void selectDeliveryOptions(String option){
-        switch (option.toLowerCase()){
-            case "gift" : sendAsGiftButton.click(); break;
-            case "self" : buyForSelfButton.click(); break;
-            default: throw new IllegalArgumentException("Invalid delivery option: "+option);
+    public void selectDeliveryOptions(String option) {
+        switch (option.toLowerCase()) {
+            case "gift":
+                sendAsGiftButton.click();
+                break;
+            case "self":
+                buyForSelfButton.click();
+                break;
+            default:
+                throw new IllegalArgumentException("Invalid delivery option: " + option);
         }
     }
 
-    public void selectDeliveryDate(String date){
+    public void selectDeliveryDate(String date) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate inputDate = LocalDate.parse(date, formatter);
-        if(LocalDate.now().equals(inputDate)){
+        if (LocalDate.now().equals(inputDate)) {
             giftNow.click();
-        }
-        else{
+        } else {
             giftLater.click();
             /*
             Need to Handle the date Selector
@@ -124,21 +128,33 @@ public class GiftCardsPage {
         }
     }
 
-    public void selectModeOfDelivery(String mode){
+    public void selectModeOfDelivery(String mode) {
         scrollToElement(birthdayTheme);
-        switch (mode.toLowerCase()){
-            case "email" : deliveryModeEmail.click(); break;
-            case "sms" : deliveryModeSMS.click(); break;
-            case "both" : deliveryModeBoth.click(); break;
-            default: throw new IllegalArgumentException("Invalid mode of delivery: "+mode);
+        switch (mode.toLowerCase()) {
+            case "email":
+                deliveryModeEmail.click();
+                break;
+            case "sms":
+                deliveryModeSMS.click();
+                break;
+            case "both":
+                deliveryModeBoth.click();
+                break;
+            default:
+                throw new IllegalArgumentException("Invalid mode of delivery: " + mode);
         }
     }
 
-    public void selectDesignTheme(String theme){
-        switch (theme.toLowerCase()){
-            case "birthday" : wait.until(ExpectedConditions.elementToBeClickable(birthdayTheme)).click(); break;
-            case "anniversary" : wait.until(ExpectedConditions.elementToBeClickable(anniversaryTheme)).click(); break;
-            default: throw new IllegalArgumentException("Invalid design theme: "+theme);
+    public void selectDesignTheme(String theme) {
+        switch (theme.toLowerCase()) {
+            case "birthday":
+                wait.until(ExpectedConditions.elementToBeClickable(birthdayTheme)).click();
+                break;
+            case "anniversary":
+                wait.until(ExpectedConditions.elementToBeClickable(anniversaryTheme)).click();
+                break;
+            default:
+                throw new IllegalArgumentException("Invalid design theme: " + theme);
         }
     }
 
@@ -158,23 +174,23 @@ public class GiftCardsPage {
         senderMobileNumber.sendKeys(mobile);
     }
 
-    public void enterReceiverFirstname(String firstname){
+    public void enterReceiverFirstname(String firstname) {
         receiverFirstname.sendKeys(firstname);
     }
 
-    public void enterReceiverLastname(String lastname){
+    public void enterReceiverLastname(String lastname) {
         receiverLastname.sendKeys(lastname);
     }
 
-    public void enterReceiverMobile(String mobile){
+    public void enterReceiverMobile(String mobile) {
         receiverMobileNumber.sendKeys(mobile);
     }
 
-    public void enterReceiverEmail(String email){
+    public void enterReceiverEmail(String email) {
         receiverEmail.sendKeys(email);
     }
 
-    public void enterGiftMessage(String message){
+    public void enterGiftMessage(String message) {
         giftMessage.sendKeys(message);
     }
 
@@ -182,14 +198,8 @@ public class GiftCardsPage {
         return birthdayTheme.isDisplayed();
     }
 
-    public void scrollToElement(WebElement element) {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(false);", element);
-    }
-
-    public void clickPreviewGiftCard(){
+    public void clickPreviewGiftCard() {
         scrollToElement(paymentDetailsSection);
         previewGiftCard.click();
     }
-
 }

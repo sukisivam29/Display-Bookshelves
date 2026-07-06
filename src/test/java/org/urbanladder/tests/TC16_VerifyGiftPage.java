@@ -3,6 +3,7 @@ package test.java.org.urbanladder.tests;
 import main.java.org.urbanladder.pages.UrbanLadderHomePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import test.java.basetest.BaseTest;
 
 import java.util.Set;
@@ -12,6 +13,7 @@ public class TC16_VerifyGiftPage extends BaseTest {
     public void navigateToGiftCardPage(){
         UrbanLadderHomePage urbanLadderHomePage = new UrbanLadderHomePage(driver);
         String currentWindowId = driver.getWindowHandle();
+        SoftAssert softAssert = new SoftAssert();
         try {
             urbanLadderHomePage.handlePopUp();
         }
@@ -28,7 +30,9 @@ public class TC16_VerifyGiftPage extends BaseTest {
         System.out.println(driver.getTitle());
         String currentUrl = driver.getCurrentUrl();
         String expectedUrl = properties.getProperty("giftPage.url");
+
+        softAssert.assertEquals(currentUrl, expectedUrl);
         logger.info("TC_16  Execution Completed");
-        Assert.assertEquals(currentUrl, expectedUrl);
+
     }
 }

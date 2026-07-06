@@ -2,16 +2,15 @@ package main.java.org.urbanladder.pages;
 
 import java.time.Duration;
 import java.util.List;
-import java.util.NoSuchElementException;
 
+import main.java.org.urbanladder.utils.CodeUtilities;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class UrbanLadderHomePage {
+public class UrbanLadderHomePage extends CodeUtilities {
     WebDriver driver;
     WebDriverWait wait;
 
@@ -48,7 +47,7 @@ public class UrbanLadderHomePage {
 //    @FindBy(id = "close")
 //    private WebElement popUpClose;
 
-    public void clickOnGiftCardsPage(){
+    public void clickOnGiftCardsPage() {
         giftCards.click();
     }
 
@@ -93,7 +92,6 @@ public class UrbanLadderHomePage {
 //        wait.until(ExpectedConditions.visibilityOf(popUp));
         SearchContext shadowRoot = popUp.getShadowRoot();
         WebElement popUpClose = shadowRoot.findElement(By.id("close"));
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].click();", popUpClose);
+        clickElement(popUpClose);
     }
 }

@@ -30,7 +30,6 @@ public class TC6_VerifyStudyChairFilter extends BaseTest {
         searchResultsPage.clickAvailablity();
         searchResultsPage.clickOutOfStock();
         searchResultsPage.clickApply();
-        logger.info("TC_6 Execution Completed");
 
         int firstPrice = searchResultsPage.getFirstProductPrice();
         int maxPrice = Integer.parseInt(properties.getProperty("max.value"));
@@ -41,5 +40,6 @@ public class TC6_VerifyStudyChairFilter extends BaseTest {
                         + firstPrice
         );
         softAssert.assertAll();
+        logger.info("TC_6 Execution Completed");
     }
 }

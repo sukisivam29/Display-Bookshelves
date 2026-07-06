@@ -84,7 +84,7 @@ public class TC4_VerifySamePriceBookshelves extends BaseTest {
             }
         }
 
-        logger.info("TC_4 Execution Completed");
         softAssert.assertAll();
+        logger.info("TC_4 Execution Completed");
     }
 }

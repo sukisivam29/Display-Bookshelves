@@ -34,10 +34,11 @@ public class TC17_VerifyDesignTemplate extends BaseTest {
 
         String theme = properties.getProperty("theme");
         giftCardsPage.selectDesignTheme(theme);
-        logger.info("TC_17 Execution Completed");
+
         softAssert.assertTrue(
                 giftCardsPage.isBirthdayThemeDisplayed(),
                 "Birthday theme is not displayed"
         );
+        logger.info("TC_17 Execution Completed");
     }
 }

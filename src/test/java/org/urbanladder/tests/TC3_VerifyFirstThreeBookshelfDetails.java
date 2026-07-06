@@ -61,7 +61,7 @@ public class TC3_VerifyFirstThreeBookshelfDetails extends BaseTest {
             }
         }
 
-        logger.info("TC_3 Execution Completed");
         softAssert.assertAll();
+        logger.info("TC_3 Execution Completed");
     }
 }
