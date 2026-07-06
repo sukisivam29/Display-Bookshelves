@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
+
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -36,15 +37,9 @@ public class BaseTest {
 
     @AfterMethod
     public void tearDown() {
-        driver.quit();
-        logger.info("Closing resources");
-    }
-
-    public static void takeScreenShot(WebDriver driver, String fileName) throws IOException {
-        File screenshotsDir = new File(System.getProperty("user.dir") + "/screenshots");
-        TakesScreenshot ts = (TakesScreenshot) driver;
-        File src = ts.getScreenshotAs(OutputType.FILE);
-        File destination = new File(screenshotsDir, fileName + ".png");
-        FileHandler.copy(src, destination);
+        if (driver != null) {
+            driver.quit();
+            logger.info("Closing resources");
+        }
     }
 }

@@ -29,7 +29,6 @@ public class TC15_VerifyLivingRoomPage extends BaseTest {
         softAssert.assertEquals(livingRoomPageUrl, properties.getProperty("livingRoom.url"));
         String livingRoomTitle = driver.getTitle();
         softAssert.assertEquals(livingRoomTitle, properties.getProperty("livingRoom.title"));
-
         logger.info("TC_15 Execution Completed");
     }
 }

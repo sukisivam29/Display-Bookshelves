@@ -27,7 +27,6 @@ public class TC13_VerifyOasisCollectionSubMenu extends BaseTest {
         softAssert.assertTrue(urbanLadderHomePage.oasisCollectionButtonIsDisplayed());
 
         List<WebElement> oasisSubMenu = urbanLadderHomePage.retrieveOasisCollectionList();
-        logger.info("TC_13 Execution Completed");
 
         List<String> actualItems = oasisSubMenu.stream()
                         .map(element -> element.getText().trim())
@@ -36,5 +35,6 @@ public class TC13_VerifyOasisCollectionSubMenu extends BaseTest {
         softAssert.assertEquals(actualItems, expectedOasisItems, "The Oasis sub-menu items do not match.");
 
         softAssert.assertAll();
+        logger.info("TC_13 Execution Completed");
     }
 }

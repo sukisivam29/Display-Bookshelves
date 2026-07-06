@@ -22,8 +22,8 @@ public class TC11_VerifyNewArrivals extends BaseTest {
 
         urbanLadderHomePage.hoverOnNewArrivals();
         softAssert.assertTrue(urbanLadderHomePage.newArrivalsMenuIsDisplayed());
-        logger.info("TC_11 Execution Completed");
 
         softAssert.assertAll();
+        logger.info("TC_11 Execution Completed");
     }
 }
