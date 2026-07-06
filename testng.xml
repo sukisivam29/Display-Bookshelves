@@ -20,4 +20,7 @@
             <class name="test.java.org.urbanladder.tests.TC19_VerifySenderAndReceiverDetails"/>
         </classes>
     </test>
+    <listeners>
+        <listener class-name="main.java.org.urbanladder.listeners.ExtentReportListener"/>
+    </listeners>
 </suite>
