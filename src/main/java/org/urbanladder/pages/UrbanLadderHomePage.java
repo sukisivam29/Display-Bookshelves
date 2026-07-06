@@ -33,13 +33,13 @@ public class UrbanLadderHomePage {
     @FindBy(xpath = "//div[contains(@role, 'button')]/span[text()='New Arrivals']")
     private WebElement newArrivalsButton;
 
-    @FindBy(id = "category-menu-0")
+    @FindBy(xpath = "//span[normalize-space()='New Arrivals']/ancestor::div[@role='button']/following::div[contains(@id,'category-menu')][1]")
     WebElement newArrivalsMenu;
 
-    @FindBy(xpath = "//div[@id='category-menu-0']//a[text()='Oasis Collection']")
+    @FindBy(xpath = "//a[normalize-space()='Oasis Collection']")
     private WebElement oasisCollectionButton;
 
-    @FindBy(xpath = "//div[@id='category-menu-0']//a[text()='Oasis Collection']/parent::*/following-sibling::ul/li")
+    @FindBy(xpath = "//a[normalize-space()='Oasis Collection']/ancestor::h2/following-sibling::ul/li")
     private List<WebElement> oasisCollectionList;
 
     @FindBy(css = "ct-web-popup-imageonly")

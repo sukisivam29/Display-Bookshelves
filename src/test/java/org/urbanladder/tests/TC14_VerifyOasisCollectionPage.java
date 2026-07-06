@@ -13,8 +13,7 @@ public class TC14_VerifyOasisCollectionPage extends BaseTest {
 
         try {
             urbanLadderHomePage.handlePopUp();
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             logger.info("No pop up found");
         }
 

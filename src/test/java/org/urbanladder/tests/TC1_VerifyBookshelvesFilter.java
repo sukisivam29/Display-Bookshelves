@@ -8,14 +8,13 @@ import test.java.basetest.BaseTest;
 
 public class TC1_VerifyBookshelvesFilter extends BaseTest {
     @Test
-    public void verifyAllFiltersForBookshelves(){
+    public void verifyAllFiltersForBookshelves() {
         UrbanLadderHomePage urbanLadderHomePage = new UrbanLadderHomePage(driver);
         SearchResultsPage searchResultsPage = new SearchResultsPage(driver);
         SoftAssert softAssert = new SoftAssert();
         try {
             urbanLadderHomePage.handlePopUp();
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             logger.info("No pop up found");
         }
         urbanLadderHomePage.enterSearch(properties.getProperty("search.query1"));
