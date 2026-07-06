@@ -56,7 +56,6 @@ public class TC2_VerifyNameAndPriceVisibility extends BaseTest {
                     "First product name is empty"
             );
             logger.info("First Product Name : " + firstProductName.getText());
-
         } catch (Exception e) {
             softAssert.fail("Unable to fetch first product name");
         }
@@ -72,7 +71,6 @@ public class TC2_VerifyNameAndPriceVisibility extends BaseTest {
                     "First product price is empty"
             );
             logger.info("First Product Price : " + firstPrice.getText());
-
         } catch (Exception e) {
             softAssert.fail("Unable to fetch first product price");
         }

@@ -54,14 +54,13 @@ public class TC3_VerifyFirstThreeBookshelfDetails extends BaseTest {
                 softAssert.assertFalse(
                         productName.getText().trim().isEmpty(),
                         "Product name missing for product " + (i + 1));
-
                 logger.info("Bookshelf " + (i + 1) + " : " + productName.getText());
-
             } catch (Exception e) {
                 softAssert.fail(
                         "Unable to capture details for bookshelf " + (i + 1));
             }
         }
+
         logger.info("TC_3 Execution Completed");
         softAssert.assertAll();
     }

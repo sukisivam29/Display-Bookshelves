@@ -65,8 +65,8 @@ public class GiftCardsPage {
     @FindBy(xpath = "(//input[@id='email'])[1]")
     WebElement senderEmail;
 
-    @FindBy(id = "(//div[@id='sender-details']//input[@id='telephone'])")
-    WebElement senderMobileNumber;  //No such element Exception
+    @FindBy(xpath = "(//input[@id='telephone'])[1]")
+    WebElement senderMobileNumber;
 
     @FindBy(xpath = "(//input[@id='firstname'])[2]")
     WebElement receiverFirstname;
@@ -74,7 +74,7 @@ public class GiftCardsPage {
     @FindBy(xpath = "(//input[@id='lastname'])[2]")
     WebElement receiverLastname;
 
-    @FindBy(xpath = "(//input[@id='email'])[1]")
+    @FindBy(xpath = "(//input[@id='email'])[2]")
     WebElement receiverEmail;
 
     @FindBy(xpath = "(//input[@id='telephone'])[2]")
@@ -85,6 +85,9 @@ public class GiftCardsPage {
 
     @FindBy(xpath = "//button[text()='PREVIEW E-GIFT-CARD']")
     WebElement previewGiftCard;
+
+    @FindBy(xpath = "//div[contains(@class,'payment-details-section')]")
+    WebElement paymentDetailsSection;
 
     public void enterDenominationAmount(String amount){
         try {
@@ -122,6 +125,7 @@ public class GiftCardsPage {
     }
 
     public void selectModeOfDelivery(String mode){
+        scrollToElement(birthdayTheme);
         switch (mode.toLowerCase()){
             case "email" : deliveryModeEmail.click(); break;
             case "sms" : deliveryModeSMS.click(); break;
@@ -178,12 +182,13 @@ public class GiftCardsPage {
         return birthdayTheme.isDisplayed();
     }
 
-    public void scrollToDesignTheme() {
+    public void scrollToElement(WebElement element) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(true);", birthdayTheme);
+        js.executeScript("arguments[0].scrollIntoView(false);", element);
     }
 
     public void clickPreviewGiftCard(){
+        scrollToElement(paymentDetailsSection);
         previewGiftCard.click();
     }
 

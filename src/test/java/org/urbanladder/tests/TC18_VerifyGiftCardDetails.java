@@ -15,12 +15,14 @@ public class TC18_VerifyGiftCardDetails extends BaseTest {
         UrbanLadderHomePage urbanLadderHomePage = new UrbanLadderHomePage(driver);
         GiftCardsPage giftCardsPage = new GiftCardsPage(driver);
         SoftAssert softAssert = new SoftAssert();
+
         try {
             urbanLadderHomePage.handlePopUp();
         }
         catch (Exception e){
             logger.info("No pop up found");
         }
+
         String currentWindowId = driver.getWindowHandle();
         urbanLadderHomePage.clickOnGiftCardsPage();
         Set<String> windows = driver.getWindowHandles();
@@ -29,10 +31,16 @@ public class TC18_VerifyGiftCardDetails extends BaseTest {
                 driver.switchTo().window(window);
             }
         }
-        giftCardsPage.enterDenominationAmount(properties.getProperty("denomination.amount"));
-        giftCardsPage.enterQuantity(properties.getProperty("quantity"));
-        giftCardsPage.selectDeliveryOptions(properties.getProperty("delivery.option"));
-        giftCardsPage.selectModeOfDelivery(properties.getProperty("delivery.mode"));
+
+        String denominationAmount = properties.getProperty("denomination.amount");
+        String quantity = properties.getProperty("quantity");
+        String deliveryOptions = properties.getProperty("delivery.option");
+        String modeOfDelivery = properties.getProperty("delivery.mode");
+
+        giftCardsPage.enterDenominationAmount(denominationAmount);
+        giftCardsPage.enterQuantity(quantity);
+        giftCardsPage.selectDeliveryOptions(deliveryOptions);
+        giftCardsPage.selectModeOfDelivery(modeOfDelivery);
 
         //Need to Add assertion
     }

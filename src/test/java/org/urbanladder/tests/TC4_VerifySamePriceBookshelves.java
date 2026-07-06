@@ -49,9 +49,7 @@ public class TC4_VerifySamePriceBookshelves extends BaseTest {
 
         Map<String, Integer> priceMap = new HashMap<>();
         for (WebElement price : prices) {
-
             String priceText = price.getText().trim();
-
             if (!priceText.isEmpty()) {
                 priceMap.put(priceText,
                         priceMap.getOrDefault(priceText, 0) + 1);

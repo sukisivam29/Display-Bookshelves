@@ -14,12 +14,15 @@ public class TC17_VerifyDesignTemplate extends BaseTest {
     public void verifyDesignTemplate(){
         UrbanLadderHomePage urbanLadderHomePage = new UrbanLadderHomePage(driver);
         GiftCardsPage giftCardsPage = new GiftCardsPage(driver);
+        SoftAssert softAssert = new SoftAssert();
+
         try {
             urbanLadderHomePage.handlePopUp();
         }
         catch (Exception e){
             logger.info("No pop up found");
         }
+
         String currentWindowId = driver.getWindowHandle();
         urbanLadderHomePage.clickOnGiftCardsPage();
         Set<String> windows = driver.getWindowHandles();
@@ -28,11 +31,10 @@ public class TC17_VerifyDesignTemplate extends BaseTest {
                 driver.switchTo().window(window);
             }
         }
+
         String theme = properties.getProperty("theme");
-        giftCardsPage.scrollToDesignTheme();
         giftCardsPage.selectDesignTheme(theme);
         logger.info("TC_17 Execution Completed");
-        SoftAssert softAssert = new SoftAssert();
         softAssert.assertTrue(
                 giftCardsPage.isBirthdayThemeDisplayed(),
                 "Birthday theme is not displayed"
