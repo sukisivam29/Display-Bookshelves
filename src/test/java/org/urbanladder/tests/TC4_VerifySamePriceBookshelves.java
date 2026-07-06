@@ -48,7 +48,6 @@ public class TC4_VerifySamePriceBookshelves extends BaseTest {
         softAssert.assertTrue(prices.size() > 0, "No prices found");
 
         Map<String, Integer> priceMap = new HashMap<>();
-
         for (WebElement price : prices) {
 
             String priceText = price.getText().trim();
@@ -60,40 +59,26 @@ public class TC4_VerifySamePriceBookshelves extends BaseTest {
         }
 
         String duplicatePrice = null;
-
         for (Map.Entry<String, Integer> entry : priceMap.entrySet()) {
-
             if (entry.getValue() >= 2) {
                 duplicatePrice = entry.getKey();
                 break;
             }
         }
-
         if (duplicatePrice == null) {
-
             logger.info("No two products have the same price");
-
         } else {
-
             logger.info("Two or more products have the same price : " + duplicatePrice);
-
             int count = 0;
-
             for (int i = 0; i < Math.min(products.size(), prices.size()); i++) {
-
                 String currentPrice = prices.get(i).getText().trim();
-
                 if (duplicatePrice.equals(currentPrice)) {
-
                     String productName = products.get(i)
                             .findElement(By.xpath(".//h2"))
                             .getText();
-
                     count++;
-
                     logger.info("Product " + count + " : " + productName);
                     logger.info("Price : " + currentPrice);
-
                     if (count == 2) {
                         break;
                     }
@@ -102,7 +87,6 @@ public class TC4_VerifySamePriceBookshelves extends BaseTest {
         }
 
         logger.info("TC_4 Execution Completed");
-
         softAssert.assertAll();
     }
 }

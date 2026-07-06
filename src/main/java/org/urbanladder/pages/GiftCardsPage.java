@@ -65,26 +65,33 @@ public class GiftCardsPage {
     @FindBy(xpath = "(//input[@id='email'])[1]")
     WebElement senderEmail;
 
-    @FindBy(id = "(//input[@id='telephone'])[1]")
-    WebElement senderMobileNumber;
+    @FindBy(id = "(//div[@id='sender-details']//input[@id='telephone'])")
+    WebElement senderMobileNumber;  //No such element Exception
 
     @FindBy(xpath = "(//input[@id='firstname'])[2]")
-    WebElement recieverFirstname;
+    WebElement receiverFirstname;
 
     @FindBy(xpath = "(//input[@id='lastname'])[2]")
-    WebElement recieverLastname;
+    WebElement receiverLastname;
 
     @FindBy(xpath = "(//input[@id='email'])[1]")
-    WebElement recieverEmail;
+    WebElement receiverEmail;
 
     @FindBy(xpath = "(//input[@id='telephone'])[2]")
-    WebElement recieverMobileNumber;
+    WebElement receiverMobileNumber;
 
     @FindBy(id = "giftMessage")
     WebElement giftMessage;
 
+    @FindBy(xpath = "//button[text()='PREVIEW E-GIFT-CARD']")
+    WebElement previewGiftCard;
+
     public void enterDenominationAmount(String amount){
-        denominationAmount.sendKeys(amount);
+        try {
+            denominationAmount.sendKeys(amount);
+        } catch (Exception e) {
+            denominationAmount.sendKeys(amount);
+        }
     }
 
     public void enterQuantity(String quantityOfCards){
@@ -143,24 +150,24 @@ public class GiftCardsPage {
         senderEmail.sendKeys(email);
     }
 
-    public void enterSenderTelephone(String mobile) {
+    public void enterSenderMobile(String mobile) {
         senderMobileNumber.sendKeys(mobile);
     }
 
-    public void enterRecieverFirstname(String firstname){
-        recieverFirstname.sendKeys(firstname);
+    public void enterReceiverFirstname(String firstname){
+        receiverFirstname.sendKeys(firstname);
     }
 
-    public void enterRecieverLastname(String lastname){
-        recieverLastname.sendKeys(lastname);
+    public void enterReceiverLastname(String lastname){
+        receiverLastname.sendKeys(lastname);
     }
 
-    public void enterRecieverTelephone(String mobile){
-        recieverMobileNumber.sendKeys(mobile);
+    public void enterReceiverMobile(String mobile){
+        receiverMobileNumber.sendKeys(mobile);
     }
 
-    public void enterRecieverEmail(String email){
-        recieverEmail.sendKeys(email);
+    public void enterReceiverEmail(String email){
+        receiverEmail.sendKeys(email);
     }
 
     public void enterGiftMessage(String message){
@@ -174,6 +181,10 @@ public class GiftCardsPage {
     public void scrollToDesignTheme() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);", birthdayTheme);
+    }
+
+    public void clickPreviewGiftCard(){
+        previewGiftCard.click();
     }
 
 }

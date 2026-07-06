@@ -12,12 +12,14 @@ public class TC6_VerifyStudyChairFilter extends BaseTest {
         UrbanLadderHomePage urbanLadderHomePage = new UrbanLadderHomePage(driver);
         SearchResultsPage searchResultsPage = new SearchResultsPage(driver);
         SoftAssert softAssert = new SoftAssert();
+
         try {
             urbanLadderHomePage.handlePopUp();
         }
         catch (Exception e){
             logger.info("No pop up found");
         }
+
         urbanLadderHomePage.enterSearch(properties.getProperty("search.query2"));
         searchResultsPage.clickAllFilters();
         searchResultsPage.clickPrice();

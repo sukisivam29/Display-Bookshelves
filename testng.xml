@@ -16,6 +16,8 @@
             <class name="test.java.org.urbanladder.tests.TC15_VerifyLivingRoomPage"/>
             <class name="test.java.org.urbanladder.tests.TC16_VerifyGiftPage"/>
             <class name="test.java.org.urbanladder.tests.TC17_VerifyDesignTemplate"/>
+            <class name="test.java.org.urbanladder.tests.TC18_VerifyGiftCardDetails"/>
+            <class name="test.java.org.urbanladder.tests.TC19_VerifySenderAndReceiverDetails"/>
         </classes>
     </test>
 </suite>
