@@ -69,7 +69,6 @@ public class TC19_VerifyValidSenderAndReceiverDetails extends BaseTest {
             }
         }
         giftCardsPage.enterGiftMessage(giftMessage);
-        giftCardsPage.clickPreviewGiftCard();
 
         if(deliveryOptions.equalsIgnoreCase("gift")) {
             softAssert.assertTrue(

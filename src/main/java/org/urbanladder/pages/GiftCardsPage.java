@@ -84,11 +84,8 @@ public class GiftCardsPage extends CodeUtilities {
     @FindBy(id = "giftMessage")
     WebElement giftMessage;
 
-    @FindBy(xpath = "//button[text()='PREVIEW E-GIFT-CARD']")
-    WebElement previewGiftCard;
-
-    @FindBy(xpath = "//div[contains(@class,'payment-details-section')]")
-    WebElement paymentDetailsSection;
+    @FindBy(xpath = "//div[contains(@class, 'invalid-address')]")
+    WebElement invalidEmailMessage;
 
     public void enterDenominationAmount(String amount) {
         try {
@@ -201,12 +198,9 @@ public class GiftCardsPage extends CodeUtilities {
         return birthdayTheme.isDisplayed();
     }
 
-    public void clickPreviewGiftCard() {
-        scrollToElement(paymentDetailsSection);
-        Actions actions = new Actions(driver);
-        actions.click(previewGiftCard);
-//        actions.moveToElement(previewGiftCard);
-//        clickElement(previewGiftCard);
+    public String getInvalidEmailText(){
+//        PageFactory.initElements(driver, this);
+        return invalidEmailMessage.getText();
     }
 
     public String getDenominationAmount() {

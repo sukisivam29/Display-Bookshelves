@@ -67,9 +67,12 @@ public class TC20_VerifyInvalidSenderAndReceiverDetails extends BaseTest {
                 giftCardsPage.enterReceiverMobile(receiverMobile);
             }
         }
-
+        String errorMessage = giftCardsPage.getInvalidEmailText();
+        String expectedErrorMessage = properties.getProperty("expected.error.message");
+        logger.error(errorMessage);
         giftCardsPage.enterGiftMessage(giftMessage);
-        giftCardsPage.clickPreviewGiftCard();
+        softAssert.assertEquals(errorMessage, expectedErrorMessage);
+        softAssert.assertAll();
         logger.info("TC_20 Execution Completed");
     }
 }
