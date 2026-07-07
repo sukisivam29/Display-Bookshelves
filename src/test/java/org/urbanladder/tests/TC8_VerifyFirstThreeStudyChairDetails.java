@@ -2,6 +2,7 @@ package test.java.org.urbanladder.tests;
 
 import main.java.org.urbanladder.pages.SearchResultsPage;
 import main.java.org.urbanladder.pages.UrbanLadderHomePage;
+import main.java.org.urbanladder.utils.ExcelReaderUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
@@ -26,15 +27,29 @@ public class TC8_VerifyFirstThreeStudyChairDetails extends BaseTest {
             test.info("No popup found");
         }
 
-        urbanLadderHomePage.enterSearch(properties.getProperty("search.query2"));
+        String searchText = ExcelReaderUtil.getCellValue(
+                properties.getProperty("excelPath"),
+                properties.getProperty("chair.sheetName"),
+                "SearchText");
+
+        String minPrice = ExcelReaderUtil.getCellValue(
+                properties.getProperty("excelPath"),
+                properties.getProperty("chair.sheetName"),
+                "MinPrice");
+
+        String maxPrice = ExcelReaderUtil.getCellValue(
+                properties.getProperty("excelPath"),
+                properties.getProperty("chair.sheetName"),
+                "MaxPrice");
+
+        urbanLadderHomePage.enterSearch(searchText);
         searchResultsPage.clickAllFilters();
         searchResultsPage.clickStorage();
         searchResultsPage.clickOpenStorageType();
         searchResultsPage.clickAvailablity();
-
         searchResultsPage.clickPrice();
-        searchResultsPage.enterMinPrice(properties.getProperty("min.value"));
-        searchResultsPage.enterMaxPrice(properties.getProperty("max.value"));
+        searchResultsPage.enterMinPrice(minPrice);
+        searchResultsPage.enterMaxPrice(maxPrice);
         searchResultsPage.clickApply();
         searchResultsPage.clickSortBy();
         searchResultsPage.clickHighToLow();

@@ -2,6 +2,7 @@ package test.java.org.urbanladder.tests;
 
 import main.java.org.urbanladder.pages.SearchResultsPage;
 import main.java.org.urbanladder.pages.UrbanLadderHomePage;
+import main.java.org.urbanladder.utils.ExcelReaderUtil;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import test.java.basetest.BaseTest;
@@ -21,11 +22,26 @@ public class TC6_VerifyStudyChairFilter extends BaseTest {
             test.info("No pop up found");
         }
 
-        urbanLadderHomePage.enterSearch(properties.getProperty("search.query2"));
+        String searchText = ExcelReaderUtil.getCellValue(
+                properties.getProperty("excelPath"),
+                properties.getProperty("chair.sheetName"),
+                "SearchText");
+
+        String minPrice = ExcelReaderUtil.getCellValue(
+                properties.getProperty("excelPath"),
+                properties.getProperty("chair.sheetName"),
+                "MinPrice");
+
+        String maxPrice = ExcelReaderUtil.getCellValue(
+                properties.getProperty("excelPath"),
+                properties.getProperty("chair.sheetName"),
+                "MaxPrice");
+
+        urbanLadderHomePage.enterSearch(searchText);
         searchResultsPage.clickAllFilters();
         searchResultsPage.clickPrice();
-        searchResultsPage.enterMinPrice(properties.getProperty("min.value"));
-        searchResultsPage.enterMaxPrice(properties.getProperty("max.value"));
+        searchResultsPage.enterMinPrice(minPrice);
+        searchResultsPage.enterMaxPrice(maxPrice);
         searchResultsPage.clickStorage();
         searchResultsPage.clickOpenStorageType();
         searchResultsPage.clickAvailablity();
@@ -33,10 +49,10 @@ public class TC6_VerifyStudyChairFilter extends BaseTest {
         searchResultsPage.clickApply();
 
         int firstPrice = searchResultsPage.getFirstProductPrice();
-        int maxPrice = Integer.parseInt(properties.getProperty("max.value"));
+        int max = Integer.parseInt(maxPrice);
 
         softAssert.assertTrue(
-                firstPrice <= maxPrice,
+                firstPrice <= max,
                 "Highest priced study chair displayed is outside the filter range. Actual Price: "
                         + firstPrice
         );

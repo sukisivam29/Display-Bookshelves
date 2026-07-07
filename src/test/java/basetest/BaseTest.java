@@ -33,10 +33,11 @@ public class BaseTest {
         driver.get(properties.getProperty("base.url"));
         driver.manage().window().maximize();
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        extent = ExtentReportManager.getExtentReports();
         logger.info("Spinning up Resources");
     }
 
-//    @AfterMethod
+    @AfterMethod
     public void tearDown() {
         driver.quit();
         logger.info("Closing resources");

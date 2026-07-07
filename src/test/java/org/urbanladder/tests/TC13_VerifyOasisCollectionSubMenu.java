@@ -23,7 +23,7 @@ public class TC13_VerifyOasisCollectionSubMenu extends BaseTest {
             test.info("No pop up found");
         }
 
-        List<String> expectedOasisItems = ExcelReaderUtil.getExpectedMenuItems(properties.getProperty("oasis.excelPath"), properties.getProperty("oasis.sheetName"));
+        List<String> expectedOasisItems = ExcelReaderUtil.getExpectedMenuItems(properties.getProperty("excelPath"), properties.getProperty("oasis.sheetName"));
         urbanLadderHomePage.hoverOnNewArrivals();
         softAssert.assertTrue(urbanLadderHomePage.oasisCollectionButtonIsDisplayed());
 

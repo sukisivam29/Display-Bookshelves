@@ -2,6 +2,7 @@ package test.java.org.urbanladder.tests;
 
 import main.java.org.urbanladder.pages.SearchResultsPage;
 import main.java.org.urbanladder.pages.UrbanLadderHomePage;
+import main.java.org.urbanladder.utils.ExcelReaderUtil;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import test.java.basetest.BaseTest;
@@ -20,7 +21,22 @@ public class TC1_VerifyBookshelvesFilter extends BaseTest {
             test.info("No pop up found");
         }
 
-        urbanLadderHomePage.enterSearch(properties.getProperty("search.query1"));
+        String searchText = ExcelReaderUtil.getCellValue(
+                properties.getProperty("excelPath"),
+                properties.getProperty("book.sheetName"),
+                "SearchText");
+
+        String minPrice = ExcelReaderUtil.getCellValue(
+                properties.getProperty("excelPath"),
+                properties.getProperty("book.sheetName"),
+                "MinPrice");
+
+        String maxPrice = ExcelReaderUtil.getCellValue(
+                properties.getProperty("excelPath"),
+                properties.getProperty("book.sheetName"),
+                "MaxPrice");
+
+        urbanLadderHomePage.enterSearch(searchText);
         logger.info("Searching for Bookshelves");
         test.info("Searching for Bookshelves");
         searchResultsPage.clickAllFilters();
@@ -29,17 +45,17 @@ public class TC1_VerifyBookshelvesFilter extends BaseTest {
         searchResultsPage.clickAvailablity();
         searchResultsPage.clickOutOfStock();
         searchResultsPage.clickPrice();
-        searchResultsPage.enterMinPrice(properties.getProperty("min.value"));
-        searchResultsPage.enterMaxPrice(properties.getProperty("max.value"));
+        searchResultsPage.enterMinPrice(minPrice);
+        searchResultsPage.enterMaxPrice(maxPrice);
         searchResultsPage.clickApply();
         searchResultsPage.clickSortBy();
         searchResultsPage.clickHighToLow();
 
         int firstPrice = searchResultsPage.getFirstProductPrice();
-        int maxPrice = Integer.parseInt(properties.getProperty("max.value"));
+        int max = Integer.parseInt(maxPrice);
 
         softAssert.assertTrue(
-                firstPrice <= maxPrice,
+                firstPrice <= max,
                 "Highest priced bookshelf displayed is outside the filter range. Actual Price: "
                         + firstPrice
         );
