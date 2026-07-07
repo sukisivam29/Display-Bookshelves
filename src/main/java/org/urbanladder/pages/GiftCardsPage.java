@@ -1,6 +1,7 @@
 package main.java.org.urbanladder.pages;
 
 import main.java.org.urbanladder.utils.CodeUtilities;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -102,10 +103,10 @@ public class GiftCardsPage extends CodeUtilities {
     public void selectDeliveryOptions(String option) {
         switch (option.toLowerCase()) {
             case "gift":
-                sendAsGiftButton.click();
+                clickElement(sendAsGiftButton);
                 break;
             case "self":
-                buyForSelfButton.click();
+                clickElement(buyForSelfButton);
                 break;
             default:
                 throw new IllegalArgumentException("Invalid delivery option: " + option);

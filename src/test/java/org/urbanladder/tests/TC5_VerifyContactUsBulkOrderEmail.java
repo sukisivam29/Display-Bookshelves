@@ -3,7 +3,6 @@ package test.java.org.urbanladder.tests;
 import main.java.org.urbanladder.pages.SearchResultsPage;
 import main.java.org.urbanladder.pages.UrbanLadderHomePage;
 import main.java.org.urbanladder.utils.CodeUtilities;
-import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import test.java.basetest.BaseTest;
