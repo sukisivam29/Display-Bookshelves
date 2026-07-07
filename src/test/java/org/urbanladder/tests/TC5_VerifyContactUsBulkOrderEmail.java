@@ -25,6 +25,7 @@ public class TC5_VerifyContactUsBulkOrderEmail extends BaseTest {
         }
         catch (Exception e) {
             logger.info("No popup found");
+            test.info("No popup found");
         }
 
         code.scrollToEnd();
@@ -41,6 +42,7 @@ public class TC5_VerifyContactUsBulkOrderEmail extends BaseTest {
 
         String actualEmail = searchResultsPage.getBulkOrderEmail();
         logger.info("Bulk Order Email : " + actualEmail);
+        test.info("Bulk Order Email : " + actualEmail);
 
         softAssert.assertEquals(
                 actualEmail,
@@ -49,6 +51,7 @@ public class TC5_VerifyContactUsBulkOrderEmail extends BaseTest {
 
 
         logger.info("TC_5 Execution Completed");
+        test.info("TC_5 Execution Completed");
         softAssert.assertAll();
     }
 }

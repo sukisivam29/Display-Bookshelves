@@ -17,10 +17,12 @@ public class TC1_VerifyBookshelvesFilter extends BaseTest {
             urbanLadderHomePage.handlePopUp();
         } catch (Exception e) {
             logger.info("No pop up found");
+            test.info("No pop up found");
         }
 
         urbanLadderHomePage.enterSearch(properties.getProperty("search.query1"));
         logger.info("Searching for Bookshelves");
+        test.info("Searching for Bookshelves");
         searchResultsPage.clickAllFilters();
         searchResultsPage.clickStorage();
         searchResultsPage.clickOpenStorageType();
@@ -43,5 +45,6 @@ public class TC1_VerifyBookshelvesFilter extends BaseTest {
         );
         softAssert.assertAll();
         logger.info("TC_1 Execution Completed");
+        test.info("TC_1 Execution Completed");
     }
 }

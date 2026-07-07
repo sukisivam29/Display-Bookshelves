@@ -16,6 +16,7 @@ public class TC11_VerifyNewArrivals extends BaseTest {
         }
         catch (Exception e){
             logger.info("No pop found");
+            test.info("No pop found");
         }
 
         softAssert.assertTrue(urbanLadderHomePage.newArrivalsButtonIsVisible());
@@ -25,5 +26,6 @@ public class TC11_VerifyNewArrivals extends BaseTest {
 
         softAssert.assertAll();
         logger.info("TC_11 Execution Completed");
+        test.info("TC_11 Execution Completed");
     }
 }

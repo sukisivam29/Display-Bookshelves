@@ -20,6 +20,7 @@ public class TC13_VerifyOasisCollectionSubMenu extends BaseTest {
         }
         catch (Exception e){
             logger.info("No pop up found");
+            test.info("No pop up found");
         }
 
         List<String> expectedOasisItems = ExcelReaderUtil.getExpectedMenuItems(properties.getProperty("oasis.excelPath"), properties.getProperty("oasis.sheetName"));
@@ -36,5 +37,6 @@ public class TC13_VerifyOasisCollectionSubMenu extends BaseTest {
 
         softAssert.assertAll();
         logger.info("TC_13 Execution Completed");
+        test.info("TC_13 Execution Completed");
     }
 }
