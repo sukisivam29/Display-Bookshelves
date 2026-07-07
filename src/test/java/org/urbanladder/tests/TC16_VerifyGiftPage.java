@@ -1,7 +1,7 @@
 package test.java.org.urbanladder.tests;
 
 import main.java.org.urbanladder.pages.UrbanLadderHomePage;
-import org.testng.Assert;
+
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import test.java.basetest.BaseTest;
@@ -35,6 +35,6 @@ public class TC16_VerifyGiftPage extends BaseTest {
         softAssert.assertEquals(currentUrl, expectedUrl);
         logger.info("TC_16  Execution Completed");
         test.info("TC_16  Execution Completed");
-
+        softAssert.assertAll();
     }
 }

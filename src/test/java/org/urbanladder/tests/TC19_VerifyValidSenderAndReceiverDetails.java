@@ -158,6 +158,5 @@ public class TC19_VerifyValidSenderAndReceiverDetails extends BaseTest {
                 "Gift Message mismatch");
 
         softAssert.assertAll();
-        logger.info("TC_19 Execution Completed");
     }
 }
