@@ -53,6 +53,6 @@ public class TC18_VerifyGiftCardDetails extends BaseTest {
                 "Quantity mismatch");
 
         softAssert.assertAll();
-
+        logger.info("TC_18 Execution Completed");
     }
 }

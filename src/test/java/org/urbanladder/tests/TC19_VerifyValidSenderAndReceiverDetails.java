@@ -8,7 +8,7 @@ import test.java.basetest.BaseTest;
 
 import java.util.Set;
 
-public class TC19_VerifySenderAndReceiverDetails extends BaseTest {
+public class TC19_VerifyValidSenderAndReceiverDetails extends BaseTest {
 
     @Test
     public void verifyEnteringSenderAndReceiverDetails(){
@@ -69,7 +69,7 @@ public class TC19_VerifySenderAndReceiverDetails extends BaseTest {
             }
         }
         giftCardsPage.enterGiftMessage(giftMessage);
-//        giftCardsPage.clickPreviewGiftCard();
+        giftCardsPage.clickPreviewGiftCard();
 
         if(deliveryOptions.equalsIgnoreCase("gift")) {
             softAssert.assertTrue(
@@ -159,5 +159,6 @@ public class TC19_VerifySenderAndReceiverDetails extends BaseTest {
                 "Gift Message mismatch");
 
         softAssert.assertAll();
+        logger.info("TC_19 Execution Completed");
     }
 }

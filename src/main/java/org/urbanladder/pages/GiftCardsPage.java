@@ -3,6 +3,7 @@ package main.java.org.urbanladder.pages;
 import main.java.org.urbanladder.utils.CodeUtilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -118,9 +119,9 @@ public class GiftCardsPage extends CodeUtilities {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate inputDate = LocalDate.parse(date, formatter);
         if (LocalDate.now().equals(inputDate)) {
-            giftNow.click();
+            clickElement(giftNow);
         } else {
-            giftLater.click();
+            clickElement(giftLater);
             /*
             Need to Handle the date Selector
             Refer the notes.txt
@@ -132,13 +133,13 @@ public class GiftCardsPage extends CodeUtilities {
         scrollToElement(birthdayTheme);
         switch (mode.toLowerCase()) {
             case "email":
-                deliveryModeEmail.click();
+                clickElement(deliveryModeEmail);
                 break;
             case "sms":
-                deliveryModeSMS.click();
+                clickElement(deliveryModeSMS);
                 break;
             case "both":
-                deliveryModeBoth.click();
+                clickElement(deliveryModeBoth);
                 break;
             default:
                 throw new IllegalArgumentException("Invalid mode of delivery: " + mode);
@@ -148,10 +149,12 @@ public class GiftCardsPage extends CodeUtilities {
     public void selectDesignTheme(String theme) {
         switch (theme.toLowerCase()) {
             case "birthday":
-                wait.until(ExpectedConditions.elementToBeClickable(birthdayTheme)).click();
+                wait.until(ExpectedConditions.elementToBeClickable(birthdayTheme));
+                clickElement(birthdayTheme);
                 break;
             case "anniversary":
-                wait.until(ExpectedConditions.elementToBeClickable(anniversaryTheme)).click();
+                wait.until(ExpectedConditions.elementToBeClickable(anniversaryTheme));
+                clickElement(anniversaryTheme);
                 break;
             default:
                 throw new IllegalArgumentException("Invalid design theme: " + theme);
@@ -200,7 +203,10 @@ public class GiftCardsPage extends CodeUtilities {
 
     public void clickPreviewGiftCard() {
         scrollToElement(paymentDetailsSection);
-        previewGiftCard.click();
+        Actions actions = new Actions(driver);
+        actions.click(previewGiftCard);
+//        actions.moveToElement(previewGiftCard);
+//        clickElement(previewGiftCard);
     }
 
     public String getDenominationAmount() {

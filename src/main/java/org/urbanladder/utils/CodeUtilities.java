@@ -8,7 +8,7 @@ public class CodeUtilities extends BaseTest {
     JavascriptExecutor js = (JavascriptExecutor) driver;
 
     public void scrollToElement(WebElement element) {
-        js.executeScript("arguments[0].scrollIntoView(true);", element);
+        js.executeScript("arguments[0].scrollIntoView(false);", element);
     }
 
     public void scrollToEnd(){
