@@ -26,6 +26,7 @@ public class TC10_VerifyDeliveryLocations extends BaseTest {
             urbanLadderHomePage.handlePopUp();
         } catch (Exception e) {
             logger.info("No popup found");
+            test.info("No popup found");
         }
 
         urbanLadderHomePage.enterSearch(properties.getProperty("search.query2"));
@@ -55,6 +56,7 @@ public class TC10_VerifyDeliveryLocations extends BaseTest {
                         .toList();
 
         logger.info("Actual Maharashtra Cities : " + actualCities);
+        test.info("Actual Maharashtra Cities : " + actualCities);
 
         softAssert.assertTrue(
                 actualCities.containsAll(expectedCities),
@@ -67,7 +69,9 @@ public class TC10_VerifyDeliveryLocations extends BaseTest {
 
 
         logger.info("Pune city verified successfully");
+        test.info("Pune city verified successfully");
         softAssert.assertAll();
         logger.info("TC_10 Execution Completed");
+        test.info("TC_10 Execution Completed");
     }
 }

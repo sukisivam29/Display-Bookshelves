@@ -15,6 +15,7 @@ public class TC14_VerifyOasisCollectionPage extends BaseTest {
             urbanLadderHomePage.handlePopUp();
         } catch (Exception e) {
             logger.info("No pop up found");
+            test.info("No pop up found");
         }
 
         urbanLadderHomePage.hoverOnNewArrivals();
@@ -25,5 +26,6 @@ public class TC14_VerifyOasisCollectionPage extends BaseTest {
         String oasisCollectionPageTitle = driver.getTitle();
         softAssert.assertEquals(properties.getProperty("oasis.title"), oasisCollectionPageTitle, "Current Page is not Oasis Collection Page");
         logger.info("TC_14 Execution Completed");
+        test.info("TC_14 Execution Completed");
     }
 }

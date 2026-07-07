@@ -23,6 +23,7 @@ public class TC3_VerifyFirstThreeBookshelfDetails extends BaseTest {
             urbanLadderHomePage.handlePopUp();
         } catch (Exception e) {
             logger.info("No popup found");
+            test.info("No popup found");
         }
 
         urbanLadderHomePage.enterSearch(properties.getProperty("search.query1"));
@@ -55,6 +56,7 @@ public class TC3_VerifyFirstThreeBookshelfDetails extends BaseTest {
                         productName.getText().trim().isEmpty(),
                         "Product name missing for product " + (i + 1));
                 logger.info("Bookshelf " + (i + 1) + " : " + productName.getText());
+                test.info("Bookshelf " + (i + 1) + " : " + productName.getText());
             } catch (Exception e) {
                 softAssert.fail(
                         "Unable to capture details for bookshelf " + (i + 1));
@@ -63,5 +65,6 @@ public class TC3_VerifyFirstThreeBookshelfDetails extends BaseTest {
 
         softAssert.assertAll();
         logger.info("TC_3 Execution Completed");
+        test.info("TC_3 Execution Completed");
     }
 }
