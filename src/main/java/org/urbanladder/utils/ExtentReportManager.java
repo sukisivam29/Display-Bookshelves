@@ -14,7 +14,7 @@ public class ExtentReportManager {
             extent = new ExtentReports();
             extent.attachReporter(sparkReporter);
             extent.setSystemInfo("Project", "Urban Ladder");
-            extent.setSystemInfo("Tester", "Berin");
+            extent.setSystemInfo("Tester", "Sukisivam, Niketha, Berin, Aditya");
         }
         return extent;
     }

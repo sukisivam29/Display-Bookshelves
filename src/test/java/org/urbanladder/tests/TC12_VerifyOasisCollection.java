@@ -17,7 +17,6 @@ public class TC12_VerifyOasisCollection extends BaseTest {
         }
         catch (Exception e){
             logger.info("No pop up found");
-            test.info("No pop up found");
         }
 
         urbanLadderHomePage.hoverOnNewArrivals();
