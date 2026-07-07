@@ -7,8 +7,14 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 import test.java.basetest.BaseTest;
+import main.java.org.urbanladder.utils.ScreenshotUtil;
+import org.apache.logging.log4j.Logger;
+import main.java.org.urbanladder.utils.LoggerManager;
+
 
 public class ExtentReportListener implements ITestListener {
+
+    private static final Logger logger = LoggerManager.getLogger(ExtentReportListener.class);
 
     @Override
     public void onTestStart(ITestResult result) {
@@ -24,6 +30,14 @@ public class ExtentReportListener implements ITestListener {
     public void onTestFailure(ITestResult result) {
         BaseTest.test.log(Status.FAIL, "Test Failed");
         BaseTest.test.fail(result.getThrowable());
+        try {
+            String screenshotPath = ScreenshotUtil.takeScreenShot(BaseTest.driver, result.getMethod().getMethodName());
+            BaseTest.test.addScreenCaptureFromPath(screenshotPath);
+        }
+        catch (Exception e) {
+            logger.error("Failed to capture screenshot", e);
+            BaseTest.test.warning("Failed to capture screenshot: " + e.getMessage());
+        }
     }
 
     @Override

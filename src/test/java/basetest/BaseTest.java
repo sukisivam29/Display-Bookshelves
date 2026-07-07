@@ -15,7 +15,7 @@ import com.aventstack.extentreports.ExtentReports;
 import main.java.org.urbanladder.utils.ExtentReportManager;
 
 public class BaseTest {
-    protected static WebDriver driver;
+    public static WebDriver driver;
     protected static WebDriverWait wait;
     public static Properties properties;
     protected Logger logger;
