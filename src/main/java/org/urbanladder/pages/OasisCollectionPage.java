@@ -13,8 +13,7 @@ public class OasisCollectionPage {
         PageFactory.initElements(driver, this);
     }
 
-    // This path is Temporary for testing purpose only, I will fix it later
-    @FindBy(xpath = "//*[@id=\"custom-page-container\"]/div/table/tbody/tr/td/table[2]/tbody/tr/td/table/tbody/tr/td[1]/table/tbody/tr/td/div/div/a/img")
+    @FindBy(xpath = "//a[contains(@href,'living-room-oasis-collection')]/img")
     WebElement livingRoomButton;
 
     public boolean isLivingRoomVisible() {
