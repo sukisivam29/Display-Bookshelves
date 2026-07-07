@@ -72,6 +72,18 @@ public class SearchResultsPage extends CodeUtilities {
     @FindBy(xpath = "//a[contains(@href,'bulk@urbanladder.com')]")
     WebElement bulkOrderEmail;
 
+    @FindBy(xpath = "//a[@href='/page/cities-we-deliver-in']")
+    WebElement moreLink;
+
+    @FindBy(xpath = "//*[text()='Maharashtra']")
+    WebElement maharashtraHeader;
+
+    @FindBy(xpath = "//strong[text()='Maharashtra']/ancestor::td/following-sibling::td//a")
+    List<WebElement> maharashtraCities;
+
+    @FindBy(xpath = "//a[contains(text(),'Pune')]")
+    WebElement puneCity;
+
     public void clickOnGiftCardsPage(){
         giftCards.click();
     }
@@ -146,5 +158,22 @@ public class SearchResultsPage extends CodeUtilities {
     public String getBulkOrderEmail() {
         return bulkOrderEmail.getText();
     }
+
+    public void clickMoreLink() {
+        moreLink.click();
+    }
+
+    public boolean isMaharashtraDisplayed() {
+        return maharashtraHeader.isDisplayed();
+    }
+
+    public boolean isPuneDisplayed() {
+        return puneCity.isDisplayed();
+    }
+
+    public List<WebElement> getMaharashtraCities() {
+        return maharashtraCities;
+    }
+
 
 }
