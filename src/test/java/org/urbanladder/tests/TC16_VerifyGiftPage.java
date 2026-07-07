@@ -19,6 +19,7 @@ public class TC16_VerifyGiftPage extends BaseTest {
         }
         catch (Exception e){
             logger.info("No pop up found");
+            test.info("No pop up found");
         }
         urbanLadderHomePage.clickOnGiftCardsPage();
         Set<String> windows = driver.getWindowHandles();
@@ -33,6 +34,7 @@ public class TC16_VerifyGiftPage extends BaseTest {
 
         softAssert.assertEquals(currentUrl, expectedUrl);
         logger.info("TC_16  Execution Completed");
+        test.info("TC_16  Execution Completed");
 
     }
 }

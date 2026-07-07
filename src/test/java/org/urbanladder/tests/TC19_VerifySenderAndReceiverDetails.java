@@ -21,6 +21,7 @@ public class TC19_VerifySenderAndReceiverDetails extends BaseTest {
         }
         catch (Exception e){
             logger.info("No pop up found");
+            test.info("No pop up found");
         }
 
         String currentWindowId = driver.getWindowHandle();
@@ -159,5 +160,7 @@ public class TC19_VerifySenderAndReceiverDetails extends BaseTest {
                 "Gift Message mismatch");
 
         softAssert.assertAll();
+        logger.info("TC_19 Execution Completed");
+        test.info("TC_19 Execution Completed");
     }
 }

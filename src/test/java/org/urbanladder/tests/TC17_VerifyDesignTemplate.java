@@ -21,6 +21,7 @@ public class TC17_VerifyDesignTemplate extends BaseTest {
         }
         catch (Exception e){
             logger.info("No pop up found");
+            test.info("No pop up found");
         }
 
         String currentWindowId = driver.getWindowHandle();
@@ -40,5 +41,6 @@ public class TC17_VerifyDesignTemplate extends BaseTest {
                 "Birthday theme is not displayed"
         );
         logger.info("TC_17 Execution Completed");
+        test.info("TC_17 Execution Completed");
     }
 }

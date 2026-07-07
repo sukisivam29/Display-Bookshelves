@@ -1,5 +1,6 @@
 package test.java.basetest;
 
+import com.aventstack.extentreports.ExtentTest;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -23,6 +24,7 @@ public class BaseTest {
     public static Properties properties;
     protected Logger logger;
     public static ExtentReports extent;
+    public static ExtentTest test;
 
     @BeforeMethod
     public void setDriver() throws IOException {

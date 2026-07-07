@@ -23,6 +23,7 @@ public class TC7_VerifyNameAndPriceVisibility extends BaseTest {
             urbanLadderHomePage.handlePopUp();
         } catch (Exception e) {
             logger.info("No popup found");
+            test.info("No popup found");
         }
 
         urbanLadderHomePage.enterSearch(properties.getProperty("search.query2"));
@@ -56,6 +57,7 @@ public class TC7_VerifyNameAndPriceVisibility extends BaseTest {
                     "First product name is empty"
             );
             logger.info("First Product Name : " + firstProductName.getText());
+            test.info("First Product Name : " + firstProductName.getText());
         } catch (Exception e) {
             softAssert.fail("Unable to fetch first product name");
         }
@@ -71,11 +73,13 @@ public class TC7_VerifyNameAndPriceVisibility extends BaseTest {
                     "First product price is empty"
             );
             logger.info("First Product Price : " + firstPrice.getText());
+            test.info("First Product Price : " + firstPrice.getText());
         } catch (Exception e) {
             softAssert.fail("Unable to fetch first product price");
         }
 
         logger.info("TC_7 Execution Completed");
+        test.info("TC_7 Execution Completed");
         softAssert.assertAll();
     }
 }

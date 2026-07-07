@@ -25,6 +25,7 @@ public class TC9_VerifySamePriceStudyChairs extends BaseTest {
             urbanLadderHomePage.handlePopUp();
         } catch (Exception e) {
             logger.info("No popup found");
+            test.info("No popup found");
         }
 
         urbanLadderHomePage.enterSearch(properties.getProperty("search.query1"));
@@ -72,9 +73,11 @@ public class TC9_VerifySamePriceStudyChairs extends BaseTest {
 
         if (duplicatePrice == null) {
             logger.info("No two products have the same price");
+            test.info("No two products have the same price");
 
         } else {
             logger.info("Two or more products have the same price : " + duplicatePrice);
+            test.info("Two or more products have the same price : " + duplicatePrice);
             int count = 0;
 
             for (int i = 0; i < Math.min(products.size(), prices.size()); i++) {
@@ -86,7 +89,9 @@ public class TC9_VerifySamePriceStudyChairs extends BaseTest {
                             .getText();
                     count++;
                     logger.info("Product " + count + " : " + productName);
+                    test.info("Product " + count + " : " + productName);
                     logger.info("Price : " + currentPrice);
+                    test.info("Price : " + currentPrice);
 
                     if (count == 2) {
                         break;
@@ -96,6 +101,7 @@ public class TC9_VerifySamePriceStudyChairs extends BaseTest {
         }
 
         logger.info("TC_9 Execution Completed");
+        test.info("TC_9 Execution Completed");
 
         softAssert.assertAll();
     }

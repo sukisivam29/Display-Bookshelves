@@ -21,6 +21,7 @@ public class TC18_VerifyGiftCardDetails extends BaseTest {
         }
         catch (Exception e){
             logger.info("No pop up found");
+            test.info("No pop up found");
         }
 
         String currentWindowId = driver.getWindowHandle();
@@ -53,6 +54,8 @@ public class TC18_VerifyGiftCardDetails extends BaseTest {
                 "Quantity mismatch");
 
         softAssert.assertAll();
+        logger.info("TC_18 Execution Completed");
+        test.info("TC_18 Execution Completed");
 
     }
 }

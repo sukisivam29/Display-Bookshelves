@@ -18,6 +18,7 @@ public class TC6_VerifyStudyChairFilter extends BaseTest {
         }
         catch (Exception e){
             logger.info("No pop up found");
+            test.info("No pop up found");
         }
 
         urbanLadderHomePage.enterSearch(properties.getProperty("search.query2"));
@@ -41,5 +42,6 @@ public class TC6_VerifyStudyChairFilter extends BaseTest {
         );
         softAssert.assertAll();
         logger.info("TC_6 Execution Completed");
+        test.info("TC_6 Execution Completed");
     }
 }
