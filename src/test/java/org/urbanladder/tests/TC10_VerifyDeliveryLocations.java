@@ -2,6 +2,7 @@ package test.java.org.urbanladder.tests;
 
 import main.java.org.urbanladder.pages.SearchResultsPage;
 import main.java.org.urbanladder.pages.UrbanLadderHomePage;
+import main.java.org.urbanladder.utils.CodeUtilities;
 import main.java.org.urbanladder.utils.ExcelReaderUtil;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
@@ -19,6 +20,7 @@ public class TC10_VerifyDeliveryLocations extends BaseTest {
         UrbanLadderHomePage urbanLadderHomePage = new UrbanLadderHomePage(driver);
         SearchResultsPage searchResultsPage = new SearchResultsPage(driver);
         SoftAssert softAssert = new SoftAssert();
+        CodeUtilities code = new CodeUtilities();
 
         try {
             urbanLadderHomePage.handlePopUp();
@@ -27,9 +29,7 @@ public class TC10_VerifyDeliveryLocations extends BaseTest {
         }
 
         urbanLadderHomePage.enterSearch(properties.getProperty("search.query2"));
-
-        ((JavascriptExecutor) driver)
-                .executeScript("window.scrollTo(0, document.body.scrollHeight)");
+        code.scrollToEnd();
 
         String parentWindow = driver.getWindowHandle();
         searchResultsPage.clickMoreLink();
