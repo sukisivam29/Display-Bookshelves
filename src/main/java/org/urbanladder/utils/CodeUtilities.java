@@ -1,27 +1,21 @@
 package main.java.org.urbanladder.utils;
 
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import test.java.basetest.BaseTest;
 
-public class CodeUtilities extends BaseTest {
-    JavascriptExecutor js = (JavascriptExecutor) driver;
+public class CodeUtilities {
 
-    public void scrollToElement(WebElement element) {
-        js.executeScript("arguments[0].scrollIntoView(false);", element);
-    }
-
-    public void scrollToEnd() {
-        js.executeScript("window.scrollTo(0,document.body.scrollHeight);");
-    }
-
-    public void clickElement(WebElement element) {
-        js.executeScript("arguments[0].click();", element);
-    }
+    private static final Logger logger =
+            LoggerManager.getLogger(CodeUtilities.class);
 
     public void logInfo(String message) {
         logger.info(message);
-        test.info(message);
+
+        if (BaseTest.test != null) {
+            BaseTest.test.info(message);
+        }
     }
 
     public void captureScreenshot(String screenshotName) {
@@ -31,11 +25,40 @@ public class CodeUtilities extends BaseTest {
                     screenshotName
             );
 
-            BaseTest.test.addScreenCaptureFromPath(path);
-            BaseTest.test.info("Screenshot captured : " + screenshotName);
+            BaseTest.test.info(
+                    "Screenshot captured : " + screenshotName
+            );
 
+            BaseTest.test.addScreenCaptureFromPath(path);
         } catch (Exception e) {
-            logInfo("Unable to capture screenshot : " + e.getMessage());
+
+            logger.error(
+                    "Unable to capture screenshot",
+                    e
+            );
         }
+    }
+
+    public void scrollToElement(WebElement element) {
+        ((JavascriptExecutor) BaseTest.driver)
+                .executeScript(
+                        "arguments[0].scrollIntoView(false);",
+                        element
+                );
+    }
+
+    public void scrollToEnd() {
+        ((JavascriptExecutor) BaseTest.driver)
+                .executeScript(
+                        "window.scrollTo(0,document.body.scrollHeight);"
+                );
+    }
+
+    public void clickElement(WebElement element) {
+        ((JavascriptExecutor) BaseTest.driver)
+                .executeScript(
+                        "arguments[0].click();",
+                        element
+                );
     }
 }

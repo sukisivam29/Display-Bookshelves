@@ -25,7 +25,7 @@ public class BaseTest {
     public static ExtentTest test;
     public static CodeUtilities code;
 
-    @BeforeTest
+    @BeforeSuite
     public void setupExtentReport() {
         extent = ExtentReportManager.getExtentReports();
     }

@@ -37,6 +37,7 @@ public class TC1_VerifyBookshelvesFilter extends BaseTest {
 
         urbanLadderHomePage.enterSearch(searchText);
         code.logInfo("Searching for Bookshelves");
+
         searchResultsPage.clickAllFilters();
         searchResultsPage.clickStorage();
         searchResultsPage.clickOpenStorageType();
