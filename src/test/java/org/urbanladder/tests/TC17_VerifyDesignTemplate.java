@@ -2,6 +2,7 @@ package test.java.org.urbanladder.tests;
 
 import main.java.org.urbanladder.pages.GiftCardsPage;
 import main.java.org.urbanladder.pages.UrbanLadderHomePage;
+import main.java.org.urbanladder.utils.ExcelReaderUtil;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import test.java.basetest.BaseTest;
@@ -33,7 +34,10 @@ public class TC17_VerifyDesignTemplate extends BaseTest {
             }
         }
 
-        String theme = properties.getProperty("theme");
+        String theme = ExcelReaderUtil.getCellValue(
+                properties.getProperty("excelPath"),
+                properties.getProperty("gift.sheetName"),
+                "Theme");
         giftCardsPage.selectDesignTheme(theme);
 
         softAssert.assertTrue(

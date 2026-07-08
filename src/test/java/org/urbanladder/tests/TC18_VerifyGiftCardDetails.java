@@ -2,6 +2,7 @@ package test.java.org.urbanladder.tests;
 
 import main.java.org.urbanladder.pages.GiftCardsPage;
 import main.java.org.urbanladder.pages.UrbanLadderHomePage;
+import main.java.org.urbanladder.utils.ExcelReaderUtil;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import test.java.basetest.BaseTest;
@@ -32,10 +33,13 @@ public class TC18_VerifyGiftCardDetails extends BaseTest {
             }
         }
 
-        String denominationAmount = properties.getProperty("denomination.amount");
-        String quantity = properties.getProperty("quantity");
-        String deliveryOptions = properties.getProperty("delivery.option");
-        String modeOfDelivery = properties.getProperty("delivery.mode");
+        String excelPath = properties.getProperty("excelPath");
+        String giftSheetName =  properties.getProperty("gift.sheetName");
+
+        String denominationAmount = ExcelReaderUtil.getCellValue(excelPath, giftSheetName, "Denomination");
+        String quantity = ExcelReaderUtil.getCellValue(excelPath, giftSheetName, "Quantity");
+        String deliveryOptions = ExcelReaderUtil.getCellValue(excelPath, giftSheetName, "DeliveryOption");
+        String modeOfDelivery = ExcelReaderUtil.getCellValue(excelPath, giftSheetName, "DeliveryMode");
 
         giftCardsPage.enterDenominationAmount(denominationAmount);
         giftCardsPage.enterQuantity(quantity);
@@ -54,5 +58,6 @@ public class TC18_VerifyGiftCardDetails extends BaseTest {
 
         softAssert.assertAll();
         logger.info("TC_18 Execution Completed");
+        test.info("TC_18 Execution Completed");
     }
 }

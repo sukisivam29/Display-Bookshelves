@@ -2,6 +2,7 @@ package test.java.org.urbanladder.tests;
 
 import main.java.org.urbanladder.pages.GiftCardsPage;
 import main.java.org.urbanladder.pages.UrbanLadderHomePage;
+import main.java.org.urbanladder.utils.ExcelReaderUtil;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import test.java.basetest.BaseTest;
@@ -31,27 +32,33 @@ public class TC20_VerifyInvalidSenderAndReceiverDetails extends BaseTest {
             }
         }
 
-        String denominationAmount = properties.getProperty("denomination.amount");
-        String amount = properties.getProperty("quantity");
-        String deliveryOptions = properties.getProperty("delivery.option");
-        String modeOfDelivery = properties.getProperty("delivery.mode");
-        String senderFirstName = properties.getProperty("sender.firstname");
-        String senderLastName = properties.getProperty("sender.lastname");
-        String invalidEmail = properties.getProperty("invalid.email");
-        String senderMobile = properties.getProperty("sender.mobile");
-        String receiverFirstName = properties.getProperty("receiver.firstname");
-        String receiverLastName = properties.getProperty("receiver.lastname");
-        String receiverEmail = properties.getProperty("receiver.email");
-        String receiverMobile = properties.getProperty("receiver.mobile");
-        String giftMessage = properties.getProperty("message");
+        String excelPath = properties.getProperty("excelPath");
+        String giftSheetName =  properties.getProperty("gift.sheetName");
+        String senderAndReceiverSheetName = properties.getProperty("sender.receiver.sheetName");
+
+        String denominationAmount = ExcelReaderUtil.getCellValue(excelPath, giftSheetName, "Denomination");
+        String quantity = ExcelReaderUtil.getCellValue(excelPath, giftSheetName, "Quantity");
+        String deliveryOptions = ExcelReaderUtil.getCellValue(excelPath, giftSheetName, "DeliveryOption");
+        String modeOfDelivery = ExcelReaderUtil.getCellValue(excelPath, giftSheetName, "DeliveryMode");
+
+        String senderFirstName = ExcelReaderUtil.getCellValue(excelPath, senderAndReceiverSheetName, "SenderFirstName");
+        String senderLastName = ExcelReaderUtil.getCellValue(excelPath, senderAndReceiverSheetName, "SenderLastName");
+        String senderEmail = ExcelReaderUtil.getCellValue(excelPath, senderAndReceiverSheetName, "InvalidEmail");
+        String senderMobile = ExcelReaderUtil.getCellValue(excelPath, senderAndReceiverSheetName, "SenderMobile");
+
+        String receiverFirstName = ExcelReaderUtil.getCellValue(excelPath, senderAndReceiverSheetName, "ReceiverFirstName");
+        String receiverLastName = ExcelReaderUtil.getCellValue(excelPath, senderAndReceiverSheetName, "ReceiverLastName");
+        String receiverEmail = ExcelReaderUtil.getCellValue(excelPath, senderAndReceiverSheetName, "ReceiverEmail");
+        String receiverMobile = ExcelReaderUtil.getCellValue(excelPath, senderAndReceiverSheetName, "ReceiverMobile");
+        String giftMessage = ExcelReaderUtil.getCellValue(excelPath, senderAndReceiverSheetName, "Message");
 
         giftCardsPage.enterDenominationAmount(denominationAmount);
-        giftCardsPage.enterQuantity(amount);
+        giftCardsPage.enterQuantity(quantity);
         giftCardsPage.selectDeliveryOptions(deliveryOptions);
         giftCardsPage.selectModeOfDelivery(modeOfDelivery);
         giftCardsPage.enterSenderFirstname(senderFirstName);
         giftCardsPage.enterSenderLastname(senderLastName);
-        giftCardsPage.enterSenderEmail(invalidEmail);
+        giftCardsPage.enterSenderEmail(senderEmail);
         giftCardsPage.enterSenderMobile(senderMobile);
         if(deliveryOptions.equals("gift")){
             giftCardsPage.enterReceiverFirstname(receiverFirstName);
@@ -69,7 +76,7 @@ public class TC20_VerifyInvalidSenderAndReceiverDetails extends BaseTest {
         }
 
         String errorMessage = giftCardsPage.getInvalidEmailText();
-        String expectedErrorMessage = properties.getProperty("expected.error.message");
+        String expectedErrorMessage = ExcelReaderUtil.getCellValue(excelPath, senderAndReceiverSheetName, "ExpectedErrorMessage");
         logger.error(errorMessage);
 
         giftCardsPage.enterGiftMessage(giftMessage);
@@ -77,5 +84,6 @@ public class TC20_VerifyInvalidSenderAndReceiverDetails extends BaseTest {
         softAssert.assertEquals(errorMessage, expectedErrorMessage);
         softAssert.assertAll();
         logger.info("TC_20 Execution Completed");
+        test.info("TC_20 Execution Completed");
     }
 }
