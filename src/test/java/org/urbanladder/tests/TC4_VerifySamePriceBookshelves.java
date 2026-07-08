@@ -27,20 +27,11 @@ public class TC4_VerifySamePriceBookshelves extends BaseTest {
         } catch (Exception e) {
             code.logInfo("No popup found");
         }
-        String searchText = ExcelReaderUtil.getCellValue(
-                properties.getProperty("excelPath"),
-                properties.getProperty("book.sheetName"),
-                "SearchText");
-
-        String minPrice = ExcelReaderUtil.getCellValue(
-                properties.getProperty("excelPath"),
-                properties.getProperty("book.sheetName"),
-                "MinPrice");
-
-        String maxPrice = ExcelReaderUtil.getCellValue(
-                properties.getProperty("excelPath"),
-                properties.getProperty("book.sheetName"),
-                "MaxPrice");
+        String excel= properties.getProperty("excelPath");
+        String sheet = properties.getProperty("book.sheetName");
+        String searchText = ExcelReaderUtil.getCellValue(excel,sheet,"SearchText");
+        String minPrice = ExcelReaderUtil.getCellValue(excel,sheet,"MinPrice");
+        String maxPrice = ExcelReaderUtil.getCellValue(excel,sheet,"MaxPrice");
 
         urbanLadderHomePage.enterSearch(searchText);
 

@@ -20,20 +20,12 @@ public class TC1_VerifyBookshelvesFilter extends BaseTest {
             code.logInfo("No pop up found");
         }
 
-        String searchText = ExcelReaderUtil.getCellValue(
-                properties.getProperty("excelPath"),
-                properties.getProperty("book.sheetName"),
-                "SearchText");
+        String excel= properties.getProperty("excelPath");
+        String sheet = properties.getProperty("book.sheetName");
+        String searchText = ExcelReaderUtil.getCellValue(excel,sheet,"SearchText");
+        String minPrice = ExcelReaderUtil.getCellValue(excel,sheet,"MinPrice");
+        String maxPrice = ExcelReaderUtil.getCellValue(excel,sheet,"MaxPrice");
 
-        String minPrice = ExcelReaderUtil.getCellValue(
-                properties.getProperty("excelPath"),
-                properties.getProperty("book.sheetName"),
-                "MinPrice");
-
-        String maxPrice = ExcelReaderUtil.getCellValue(
-                properties.getProperty("excelPath"),
-                properties.getProperty("book.sheetName"),
-                "MaxPrice");
 
         urbanLadderHomePage.enterSearch(searchText);
         code.logInfo("Searching for Bookshelves");

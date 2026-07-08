@@ -5,7 +5,6 @@ import main.java.org.urbanladder.pages.UrbanLadderHomePage;
 import main.java.org.urbanladder.utils.CodeUtilities;
 import main.java.org.urbanladder.utils.ExcelReaderUtil;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;

@@ -25,20 +25,11 @@ public class TC7_VerifyNameAndPriceVisibility extends BaseTest {
         } catch (Exception e) {
             code.logInfo("No pop up found");
         }
-        String searchText = ExcelReaderUtil.getCellValue(
-                properties.getProperty("excelPath"),
-                properties.getProperty("chair.sheetName"),
-                "SearchText");
-
-        String minPrice = ExcelReaderUtil.getCellValue(
-                properties.getProperty("excelPath"),
-                properties.getProperty("chair.sheetName"),
-                "MinPrice");
-
-        String maxPrice = ExcelReaderUtil.getCellValue(
-                properties.getProperty("excelPath"),
-                properties.getProperty("chair.sheetName"),
-                "MaxPrice");
+        String excel= properties.getProperty("excelPath");
+        String sheet = properties.getProperty("book.sheetName");
+        String searchText = ExcelReaderUtil.getCellValue(excel,sheet,"SearchText");
+        String minPrice = ExcelReaderUtil.getCellValue(excel,sheet,"MinPrice");
+        String maxPrice = ExcelReaderUtil.getCellValue(excel,sheet,"MaxPrice");
 
         urbanLadderHomePage.enterSearch(searchText);
         searchResultsPage.clickAllFilters();
