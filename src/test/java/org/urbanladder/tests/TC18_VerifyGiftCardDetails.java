@@ -40,10 +40,12 @@ public class TC18_VerifyGiftCardDetails extends BaseTest {
         String quantity = ExcelReaderUtil.getCellValue(excelPath, giftSheetName, "Quantity");
         String deliveryOptions = ExcelReaderUtil.getCellValue(excelPath, giftSheetName, "DeliveryOption");
         String modeOfDelivery = ExcelReaderUtil.getCellValue(excelPath, giftSheetName, "DeliveryMode");
+        String deliveryDate = ExcelReaderUtil.getCellValue(excelPath, giftSheetName, "Date");
 
         giftCardsPage.enterDenominationAmount(denominationAmount);
         giftCardsPage.enterQuantity(quantity);
         giftCardsPage.selectDeliveryOptions(deliveryOptions);
+        giftCardsPage.selectDeliveryDate(deliveryDate);
         giftCardsPage.selectModeOfDelivery(modeOfDelivery);
 
         softAssert.assertEquals(

@@ -62,7 +62,6 @@ public class SearchResultsPage extends CodeUtilities {
     @FindBy(xpath = "(//div[@class='MniCX']//div[@class='HOVM7']//div/div[@role='link']/div[@class='o0mbO']//span[@class='sr-only'])[1]")
     WebElement firstProductPrice;
 
-
     @FindBy(xpath = "//div[@class='ug1_C']")
     List<WebElement> productPrices;
 

@@ -1,6 +1,7 @@
 package main.java.org.urbanladder.pages;
 
 import main.java.org.urbanladder.utils.CodeUtilities;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,6 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 public class GiftCardsPage extends CodeUtilities {
 
@@ -116,14 +118,26 @@ public class GiftCardsPage extends CodeUtilities {
     public void selectDeliveryDate(String date) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDate inputDate = LocalDate.parse(date, formatter);
-        if (LocalDate.now().equals(inputDate)) {
+        LocalDate today = LocalDate.now();
+
+        if (inputDate.isBefore(today)) {
+            inputDate = today;
+        }
+
+        if (inputDate.equals(today)) {
             clickElement(giftNow);
         } else {
             clickElement(giftLater);
-            /*
-            Need to Handle the date Selector
-            Refer the notes.txt
-            */
+
+            String ariaLabel = inputDate.format(
+                    DateTimeFormatter.ofPattern("MMMM d, yyyy", Locale.ENGLISH));
+
+            By dateLocator = By.xpath(
+                    "//span[contains(@class,'flatpickr-day') and " +
+                            "not(contains(@class,'disabled')) and " +
+                            "@aria-label='" + ariaLabel + "']");
+
+            driver.findElement(dateLocator).click();
         }
     }
 
