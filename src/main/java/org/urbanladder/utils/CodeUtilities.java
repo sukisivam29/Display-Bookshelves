@@ -11,11 +11,31 @@ public class CodeUtilities extends BaseTest {
         js.executeScript("arguments[0].scrollIntoView(false);", element);
     }
 
-    public void scrollToEnd(){
+    public void scrollToEnd() {
         js.executeScript("window.scrollTo(0,document.body.scrollHeight);");
     }
 
     public void clickElement(WebElement element) {
         js.executeScript("arguments[0].click();", element);
+    }
+
+    public void logInfo(String message) {
+        logger.info(message);
+        test.info(message);
+    }
+
+    public void captureScreenshot(String screenshotName) {
+        try {
+            String path = ScreenshotUtil.takeScreenShot(
+                    BaseTest.driver,
+                    screenshotName
+            );
+
+            BaseTest.test.addScreenCaptureFromPath(path);
+            BaseTest.test.info("Screenshot captured : " + screenshotName);
+
+        } catch (Exception e) {
+            logInfo("Unable to capture screenshot : " + e.getMessage());
+        }
     }
 }

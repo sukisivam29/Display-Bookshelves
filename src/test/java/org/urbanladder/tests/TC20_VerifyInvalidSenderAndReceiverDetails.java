@@ -11,29 +11,29 @@ import java.util.Set;
 
 public class TC20_VerifyInvalidSenderAndReceiverDetails extends BaseTest {
     @Test
-    public void verifyEnteringInvalidSenderAndReceiverDetails(){
+    public void verifyEnteringInvalidSenderAndReceiverDetails() {
         UrbanLadderHomePage urbanLadderHomePage = new UrbanLadderHomePage(driver);
         GiftCardsPage giftCardsPage = new GiftCardsPage(driver);
         SoftAssert softAssert = new SoftAssert();
 
         try {
             urbanLadderHomePage.handlePopUp();
-        }
-        catch (Exception e){
-            logger.info("No pop up found");
+        } catch (Exception e) {
+            code.logInfo("No pop up found");
         }
 
         String currentWindowId = driver.getWindowHandle();
         urbanLadderHomePage.clickOnGiftCardsPage();
+
         Set<String> windows = driver.getWindowHandles();
-        for(String window : windows){
-            if(!currentWindowId.equals(window)){
+        for (String window : windows) {
+            if (!currentWindowId.equals(window)) {
                 driver.switchTo().window(window);
             }
         }
 
         String excelPath = properties.getProperty("excelPath");
-        String giftSheetName =  properties.getProperty("gift.sheetName");
+        String giftSheetName = properties.getProperty("gift.sheetName");
         String senderAndReceiverSheetName = properties.getProperty("sender.receiver.sheetName");
 
         String denominationAmount = ExcelReaderUtil.getCellValue(excelPath, giftSheetName, "Denomination");
@@ -60,16 +60,16 @@ public class TC20_VerifyInvalidSenderAndReceiverDetails extends BaseTest {
         giftCardsPage.enterSenderLastname(senderLastName);
         giftCardsPage.enterSenderEmail(senderEmail);
         giftCardsPage.enterSenderMobile(senderMobile);
-        if(deliveryOptions.equals("gift")){
+
+        if (deliveryOptions.equals("gift")) {
             giftCardsPage.enterReceiverFirstname(receiverFirstName);
             giftCardsPage.enterReceiverLastname(receiverLastName);
-            if(modeOfDelivery.equals("email")){
+
+            if (modeOfDelivery.equals("email")) {
                 giftCardsPage.enterReceiverEmail(receiverEmail);
-            }
-            else if(modeOfDelivery.equals("sms")){
+            } else if (modeOfDelivery.equals("sms")) {
                 giftCardsPage.enterReceiverMobile(receiverMobile);
-            }
-            else{
+            } else {
                 giftCardsPage.enterReceiverEmail(receiverEmail);
                 giftCardsPage.enterReceiverMobile(receiverMobile);
             }
@@ -83,7 +83,6 @@ public class TC20_VerifyInvalidSenderAndReceiverDetails extends BaseTest {
 
         softAssert.assertEquals(errorMessage, expectedErrorMessage);
         softAssert.assertAll();
-        logger.info("TC_20 Execution Completed");
-        test.info("TC_20 Execution Completed");
+        code.logInfo("TC_20 Execution Completed");
     }
 }

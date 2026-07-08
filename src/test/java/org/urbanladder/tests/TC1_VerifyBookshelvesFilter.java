@@ -17,8 +17,7 @@ public class TC1_VerifyBookshelvesFilter extends BaseTest {
         try {
             urbanLadderHomePage.handlePopUp();
         } catch (Exception e) {
-            logger.info("No pop up found");
-            test.info("No pop up found");
+            code.logInfo("No pop up found");
         }
 
         String searchText = ExcelReaderUtil.getCellValue(
@@ -37,8 +36,7 @@ public class TC1_VerifyBookshelvesFilter extends BaseTest {
                 "MaxPrice");
 
         urbanLadderHomePage.enterSearch(searchText);
-        logger.info("Searching for Bookshelves");
-        test.info("Searching for Bookshelves");
+        code.logInfo("Searching for Bookshelves");
         searchResultsPage.clickAllFilters();
         searchResultsPage.clickStorage();
         searchResultsPage.clickOpenStorageType();
@@ -51,6 +49,8 @@ public class TC1_VerifyBookshelvesFilter extends BaseTest {
         searchResultsPage.clickSortBy();
         searchResultsPage.clickHighToLow();
 
+        code.captureScreenshot("TC1 - Bookshelf_Search_Result");
+
         int firstPrice = searchResultsPage.getFirstProductPrice();
         int max = Integer.parseInt(maxPrice);
 
@@ -60,7 +60,6 @@ public class TC1_VerifyBookshelvesFilter extends BaseTest {
                         + firstPrice
         );
         softAssert.assertAll();
-        logger.info("TC_1 Execution Completed");
-        test.info("TC_1 Execution Completed");
+        code.logInfo("TC_1 Execution Completed");
     }
 }

@@ -13,19 +13,17 @@ public class TC11_VerifyNewArrivals extends BaseTest {
 
         try {
             urbanLadderHomePage.handlePopUp();
-        }
-        catch (Exception e){
-            logger.info("No pop found");
-            test.info("No pop found");
+        } catch (Exception e) {
+            code.logInfo("No pop up found");
         }
 
         softAssert.assertTrue(urbanLadderHomePage.newArrivalsButtonIsVisible());
 
         urbanLadderHomePage.hoverOnNewArrivals();
         softAssert.assertTrue(urbanLadderHomePage.newArrivalsMenuIsDisplayed());
+        code.captureScreenshot("TC11 - New_Arrivals_Menu");
 
         softAssert.assertAll();
-        logger.info("TC_11 Execution Completed");
-        test.info("TC_11 Execution Completed");
+        code.logInfo("TC_11 Execution Completed");
     }
 }

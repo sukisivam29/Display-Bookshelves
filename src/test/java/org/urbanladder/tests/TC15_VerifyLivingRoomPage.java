@@ -15,10 +15,8 @@ public class TC15_VerifyLivingRoomPage extends BaseTest {
 
         try {
             urbanLadderHomePage.handlePopUp();
-        }
-        catch (Exception e){
-            logger.info("No pop up found");
-            test.info("No pop up found");
+        } catch (Exception e) {
+            code.logInfo("No pop up found");
         }
 
         urbanLadderHomePage.hoverOnNewArrivals();
@@ -30,7 +28,6 @@ public class TC15_VerifyLivingRoomPage extends BaseTest {
         softAssert.assertEquals(livingRoomPageUrl, properties.getProperty("livingRoom.url"));
         String livingRoomTitle = driver.getTitle();
         softAssert.assertEquals(livingRoomTitle, properties.getProperty("livingRoom.title"));
-        logger.info("TC_15 Execution Completed");
-        test.info("TC_15 Execution Completed");
+        code.logInfo("TC_15 Execution Completed");
     }
 }

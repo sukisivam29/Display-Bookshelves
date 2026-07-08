@@ -23,7 +23,7 @@ public class ExtentReportListener implements ITestListener {
 
     @Override
     public void onTestSuccess(ITestResult result) {
-        BaseTest.test.log(Status.PASS, "Test Passed");
+        BaseTest.test.pass("Test Passed");
     }
 
     @Override
@@ -31,10 +31,12 @@ public class ExtentReportListener implements ITestListener {
         BaseTest.test.log(Status.FAIL, "Test Failed");
         BaseTest.test.fail(result.getThrowable());
         try {
-            String screenshotPath = ScreenshotUtil.takeScreenShot(BaseTest.driver, result.getMethod().getMethodName());
+            String screenshotPath = ScreenshotUtil.takeScreenShot(
+                    BaseTest.driver,
+                    result.getMethod().getMethodName()
+            );
             BaseTest.test.addScreenCaptureFromPath(screenshotPath);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             logger.error("Failed to capture screenshot", e);
             BaseTest.test.warning("Failed to capture screenshot: " + e.getMessage());
         }

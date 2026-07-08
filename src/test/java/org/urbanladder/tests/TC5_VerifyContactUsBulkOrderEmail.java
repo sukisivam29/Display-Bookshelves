@@ -23,8 +23,7 @@ public class TC5_VerifyContactUsBulkOrderEmail extends BaseTest {
             urbanLadderHomePage.handlePopUp();
         }
         catch (Exception e) {
-            logger.info("No popup found");
-            test.info("No popup found");
+            code.logInfo("No popup found");
         }
 
         code.scrollToEnd();
@@ -39,9 +38,10 @@ public class TC5_VerifyContactUsBulkOrderEmail extends BaseTest {
             }
         }
 
+        code.captureScreenshot("TC5 - Switched_To_Contact_Us_Page");
+
         String actualEmail = searchResultsPage.getBulkOrderEmail();
-        logger.info("Bulk Order Email : " + actualEmail);
-        test.info("Bulk Order Email : " + actualEmail);
+        code.logInfo("Bulk Order Email : " + actualEmail);
 
         softAssert.assertEquals(
                 actualEmail,
@@ -49,8 +49,7 @@ public class TC5_VerifyContactUsBulkOrderEmail extends BaseTest {
                 "Incorrect bulk order email displayed");
 
 
-        logger.info("TC_5 Execution Completed");
-        test.info("TC_5 Execution Completed");
+        code.logInfo("TC_5 Execution Completed");
         softAssert.assertAll();
     }
 }

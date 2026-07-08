@@ -28,7 +28,7 @@ public class TC10_VerifyDeliveryLocations extends BaseTest {
         try {
             urbanLadderHomePage.handlePopUp();
         } catch (Exception e) {
-            logger.info("No popup found");
+            code.logInfo("No pop up found");
         }
 
         String searchText = ExcelReaderUtil.getCellValue(
@@ -38,29 +38,24 @@ public class TC10_VerifyDeliveryLocations extends BaseTest {
         );
 
         urbanLadderHomePage.enterSearch(searchText);
-
         code.scrollToEnd();
-
         String parentWindow = driver.getWindowHandle();
-
         searchResultsPage.clickMoreLink();
-
         Set<String> windows = driver.getWindowHandles();
 
         for (String window : windows) {
-
             if (!window.equals(parentWindow)) {
-
                 driver.switchTo().window(window);
                 break;
             }
         }
 
-        logger.info("Current URL : " + driver.getCurrentUrl());
+        code.captureScreenshot("TC10 - Delivery_Location_Page_Opened");
 
+        logger.info("Current URL : {}", driver.getCurrentUrl());
         new WebDriverWait(driver, Duration.ofSeconds(20))
                 .until(driver ->
-                        searchResultsPage.getMaharashtraCities().size() > 0);
+                        !searchResultsPage.getMaharashtraCities().isEmpty());
 
         List<String> expectedCities =
                 ExcelReaderUtil.getExpectedMenuItems(
@@ -76,7 +71,7 @@ public class TC10_VerifyDeliveryLocations extends BaseTest {
                         .filter(city -> !city.isEmpty())
                         .toList();
 
-        logger.info("Actual Maharashtra Cities : " + actualCities);
+        logger.info("Actual Maharashtra Cities : {}", actualCities);
 
         softAssert.assertTrue(
                 actualCities.containsAll(expectedCities),
@@ -88,9 +83,8 @@ public class TC10_VerifyDeliveryLocations extends BaseTest {
                 "Pune is not present in Maharashtra cities list"
         );
 
-        logger.info("Pune city verified successfully");
-        logger.info("TC_10 Execution Completed");
-
+        code.logInfo("Pune city verified successfully");
+        code.logInfo("TC_10 Execution Completed");
         softAssert.assertAll();
     }
 }

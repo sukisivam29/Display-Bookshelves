@@ -23,8 +23,7 @@ public class TC7_VerifyNameAndPriceVisibility extends BaseTest {
         try {
             urbanLadderHomePage.handlePopUp();
         } catch (Exception e) {
-            logger.info("No popup found");
-            test.info("No popup found");
+            code.logInfo("No pop up found");
         }
         String searchText = ExcelReaderUtil.getCellValue(
                 properties.getProperty("excelPath"),
@@ -57,11 +56,11 @@ public class TC7_VerifyNameAndPriceVisibility extends BaseTest {
         List<WebElement> products = searchResultsPage.getProductList();
         List<WebElement> prices = searchResultsPage.getProductPrices();
 
-        softAssert.assertTrue(products.size() > 0, "No products displayed");
-        softAssert.assertTrue(prices.size() > 0, "No prices displayed");
+        softAssert.assertTrue(!products.isEmpty(), "No products displayed");
+        softAssert.assertTrue(!prices.isEmpty(), "No prices displayed");
 
         try {
-            WebElement firstProduct = products.get(0);
+            WebElement firstProduct = products.getFirst();
             WebElement firstProductName = firstProduct.findElement(By.xpath(".//h2"));
             softAssert.assertTrue(
                     firstProductName.isDisplayed(),
@@ -71,14 +70,13 @@ public class TC7_VerifyNameAndPriceVisibility extends BaseTest {
                     firstProductName.getText().trim().isEmpty(),
                     "First product name is empty"
             );
-            logger.info("First Product Name : " + firstProductName.getText());
-            test.info("First Product Name : " + firstProductName.getText());
+            code.logInfo("First Product Name : " + firstProductName.getText());
         } catch (Exception e) {
             softAssert.fail("Unable to fetch first product name");
         }
 
         try {
-            WebElement firstPrice = prices.get(0);
+            WebElement firstPrice = prices.getFirst();
             softAssert.assertTrue(
                     firstPrice.isDisplayed(),
                     "First product price is not visible"
@@ -87,14 +85,12 @@ public class TC7_VerifyNameAndPriceVisibility extends BaseTest {
                     firstPrice.getText().trim().isEmpty(),
                     "First product price is empty"
             );
-            logger.info("First Product Price : " + firstPrice.getText());
-            test.info("First Product Price : " + firstPrice.getText());
+            code.logInfo("First Product Price : " + firstPrice.getText());
         } catch (Exception e) {
             softAssert.fail("Unable to fetch first product price");
         }
 
-        logger.info("TC_7 Execution Completed");
-        test.info("TC_7 Execution Completed");
         softAssert.assertAll();
+        code.logInfo("TC_7 Execution Completed");
     }
 }

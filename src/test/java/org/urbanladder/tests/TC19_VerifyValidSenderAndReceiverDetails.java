@@ -12,29 +12,28 @@ import java.util.Set;
 public class TC19_VerifyValidSenderAndReceiverDetails extends BaseTest {
 
     @Test
-    public void verifyEnteringSenderAndReceiverDetails(){
+    public void verifyEnteringSenderAndReceiverDetails() {
         UrbanLadderHomePage urbanLadderHomePage = new UrbanLadderHomePage(driver);
         GiftCardsPage giftCardsPage = new GiftCardsPage(driver);
         SoftAssert softAssert = new SoftAssert();
 
         try {
             urbanLadderHomePage.handlePopUp();
-        }
-        catch (Exception e){
-            logger.info("No pop up found");
+        } catch (Exception e) {
+            code.logInfo("No pop up found");
         }
 
         String currentWindowId = driver.getWindowHandle();
         urbanLadderHomePage.clickOnGiftCardsPage();
         Set<String> windows = driver.getWindowHandles();
-        for(String window : windows){
-            if(!currentWindowId.equals(window)){
+        for (String window : windows) {
+            if (!currentWindowId.equals(window)) {
                 driver.switchTo().window(window);
             }
         }
 
         String excelPath = properties.getProperty("excelPath");
-        String giftSheetName =  properties.getProperty("gift.sheetName");
+        String giftSheetName = properties.getProperty("gift.sheetName");
         String senderAndReceiverSheetName = properties.getProperty("sender.receiver.sheetName");
 
         String denominationAmount = ExcelReaderUtil.getCellValue(excelPath, giftSheetName, "Denomination");
@@ -61,23 +60,21 @@ public class TC19_VerifyValidSenderAndReceiverDetails extends BaseTest {
         giftCardsPage.enterSenderLastname(senderLastName);
         giftCardsPage.enterSenderEmail(senderEmail);
         giftCardsPage.enterSenderMobile(senderMobile);
-        if(deliveryOptions.equals("gift")){
+        if (deliveryOptions.equals("gift")) {
             giftCardsPage.enterReceiverFirstname(receiverFirstName);
             giftCardsPage.enterReceiverLastname(receiverLastName);
-            if(modeOfDelivery.equals("email")){
+            if (modeOfDelivery.equals("email")) {
                 giftCardsPage.enterReceiverEmail(receiverEmail);
-            }
-            else if(modeOfDelivery.equals("sms")){
+            } else if (modeOfDelivery.equals("sms")) {
                 giftCardsPage.enterReceiverMobile(receiverMobile);
-            }
-            else{
+            } else {
                 giftCardsPage.enterReceiverEmail(receiverEmail);
                 giftCardsPage.enterReceiverMobile(receiverMobile);
             }
         }
         giftCardsPage.enterGiftMessage(giftMessage);
 
-        if(deliveryOptions.equalsIgnoreCase("gift")) {
+        if (deliveryOptions.equalsIgnoreCase("gift")) {
             softAssert.assertTrue(
                     giftCardsPage.isSendAsGiftSelected(),
                     "Send As Gift option is not selected");
@@ -87,17 +84,15 @@ public class TC19_VerifyValidSenderAndReceiverDetails extends BaseTest {
                     "Buy For Self option is not selected");
         }
 
-        if(modeOfDelivery.equalsIgnoreCase("email")) {
+        if (modeOfDelivery.equalsIgnoreCase("email")) {
             softAssert.assertTrue(
                     giftCardsPage.isEmailModeSelected(),
                     "Email mode is not selected");
-        }
-        else if(modeOfDelivery.equalsIgnoreCase("sms")) {
+        } else if (modeOfDelivery.equalsIgnoreCase("sms")) {
             softAssert.assertTrue(
                     giftCardsPage.isSmsModeSelected(),
                     "SMS mode is not selected");
-        }
-        else {
+        } else {
             softAssert.assertTrue(
                     giftCardsPage.isBothModeSelected(),
                     "Both mode is not selected");
@@ -123,7 +118,7 @@ public class TC19_VerifyValidSenderAndReceiverDetails extends BaseTest {
                 senderMobile,
                 "Sender Mobile mismatch");
 
-        if(deliveryOptions.equals("gift")) {
+        if (deliveryOptions.equals("gift")) {
             softAssert.assertEquals(
                     giftCardsPage.getReceiverFirstname(),
                     receiverFirstName,
@@ -134,21 +129,21 @@ public class TC19_VerifyValidSenderAndReceiverDetails extends BaseTest {
                     receiverLastName,
                     "Receiver Last Name mismatch");
 
-            if(modeOfDelivery.equals("email")) {
+            if (modeOfDelivery.equals("email")) {
                 softAssert.assertEquals(
                         giftCardsPage.getReceiverEmail(),
                         receiverEmail,
                         "Receiver Email mismatch");
             }
 
-            if(modeOfDelivery.equals("sms")) {
+            if (modeOfDelivery.equals("sms")) {
                 softAssert.assertEquals(
                         giftCardsPage.getReceiverMobile(),
                         receiverMobile,
                         "Receiver Mobile mismatch");
             }
 
-            if(modeOfDelivery.equals("both")) {
+            if (modeOfDelivery.equals("both")) {
                 softAssert.assertEquals(
                         giftCardsPage.getReceiverEmail(),
                         receiverEmail);
@@ -165,7 +160,6 @@ public class TC19_VerifyValidSenderAndReceiverDetails extends BaseTest {
                 "Gift Message mismatch");
 
         softAssert.assertAll();
-        logger.info("TC_19 Execution Completed");
-        test.info("TC_19 Execution Completed");
+        code.logInfo("TC_19 Execution Completed");
     }
 }

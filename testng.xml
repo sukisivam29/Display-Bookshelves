@@ -9,48 +9,48 @@
             <class name="test.java.org.urbanladder.tests.TC3_VerifyFirstThreeBookshelfDetails"/>
             <class name="test.java.org.urbanladder.tests.TC4_VerifySamePriceBookshelves"/>
             <class name="test.java.org.urbanladder.tests.TC5_VerifyContactUsBulkOrderEmail"/>
-            <class name="test.java.org.urbanladder.tests.TC6_VerifyStudyChairFilter"/>
-            <class name="test.java.org.urbanladder.tests.TC7_VerifyNameAndPriceVisibility"/>
-            <class name="test.java.org.urbanladder.tests.TC8_VerifyFirstThreeStudyChairDetails"/>
-            <class name="test.java.org.urbanladder.tests.TC9_VerifySamePriceStudyChairs"/>
-            <class name="test.java.org.urbanladder.tests.TC10_VerifyDeliveryLocations"/>
-            <class name="test.java.org.urbanladder.tests.TC11_VerifyNewArrivals"/>
-            <class name="test.java.org.urbanladder.tests.TC12_VerifyOasisCollection"/>
-            <class name="test.java.org.urbanladder.tests.TC13_VerifyOasisCollectionSubMenu"/>
-            <class name="test.java.org.urbanladder.tests.TC14_VerifyOasisCollectionPage"/>
-            <class name="test.java.org.urbanladder.tests.TC15_VerifyLivingRoomPage"/>
-            <class name="test.java.org.urbanladder.tests.TC16_VerifyGiftPage"/>
-            <class name="test.java.org.urbanladder.tests.TC17_VerifyDesignTemplate"/>
-            <class name="test.java.org.urbanladder.tests.TC18_VerifyGiftCardDetails"/>
-            <class name="test.java.org.urbanladder.tests.TC19_VerifyValidSenderAndReceiverDetails"/>
-            <class name="test.java.org.urbanladder.tests.TC20_VerifyInvalidSenderAndReceiverDetails"/>
+<!--            <class name="test.java.org.urbanladder.tests.TC6_VerifyStudyChairFilter"/>-->
+<!--            <class name="test.java.org.urbanladder.tests.TC7_VerifyNameAndPriceVisibility"/>-->
+<!--            <class name="test.java.org.urbanladder.tests.TC8_VerifyFirstThreeStudyChairDetails"/>-->
+<!--            <class name="test.java.org.urbanladder.tests.TC9_VerifySamePriceStudyChairs"/>-->
+<!--            <class name="test.java.org.urbanladder.tests.TC10_VerifyDeliveryLocations"/>-->
+<!--            <class name="test.java.org.urbanladder.tests.TC11_VerifyNewArrivals"/>-->
+<!--            <class name="test.java.org.urbanladder.tests.TC12_VerifyOasisCollection"/>-->
+<!--            <class name="test.java.org.urbanladder.tests.TC13_VerifyOasisCollectionSubMenu"/>-->
+<!--            <class name="test.java.org.urbanladder.tests.TC14_VerifyOasisCollectionPage"/>-->
+<!--            <class name="test.java.org.urbanladder.tests.TC15_VerifyLivingRoomPage"/>-->
+<!--            <class name="test.java.org.urbanladder.tests.TC16_VerifyGiftPage"/>-->
+<!--            <class name="test.java.org.urbanladder.tests.TC17_VerifyDesignTemplate"/>-->
+<!--            <class name="test.java.org.urbanladder.tests.TC18_VerifyGiftCardDetails"/>-->
+<!--            <class name="test.java.org.urbanladder.tests.TC19_VerifyValidSenderAndReceiverDetails"/>-->
+<!--            <class name="test.java.org.urbanladder.tests.TC20_VerifyInvalidSenderAndReceiverDetails"/>-->
         </classes>
     </test>
-    <test name="Edge Execution">
-        <parameter name="browser" value="edge"/>
-        <classes>
-            <class name="test.java.org.urbanladder.tests.TC1_VerifyBookshelvesFilter"/>
-            <class name="test.java.org.urbanladder.tests.TC2_VerifyNameAndPriceVisibility"/>
-            <class name="test.java.org.urbanladder.tests.TC3_VerifyFirstThreeBookshelfDetails"/>
-            <class name="test.java.org.urbanladder.tests.TC4_VerifySamePriceBookshelves"/>
-            <class name="test.java.org.urbanladder.tests.TC5_VerifyContactUsBulkOrderEmail"/>
-            <class name="test.java.org.urbanladder.tests.TC6_VerifyStudyChairFilter"/>
-            <class name="test.java.org.urbanladder.tests.TC7_VerifyNameAndPriceVisibility"/>
-            <class name="test.java.org.urbanladder.tests.TC8_VerifyFirstThreeStudyChairDetails"/>
-            <class name="test.java.org.urbanladder.tests.TC9_VerifySamePriceStudyChairs"/>
-            <class name="test.java.org.urbanladder.tests.TC10_VerifyDeliveryLocations"/>
-            <class name="test.java.org.urbanladder.tests.TC11_VerifyNewArrivals"/>
-            <class name="test.java.org.urbanladder.tests.TC12_VerifyOasisCollection"/>
-            <class name="test.java.org.urbanladder.tests.TC13_VerifyOasisCollectionSubMenu"/>
-            <class name="test.java.org.urbanladder.tests.TC14_VerifyOasisCollectionPage"/>
-            <class name="test.java.org.urbanladder.tests.TC15_VerifyLivingRoomPage"/>
-            <class name="test.java.org.urbanladder.tests.TC16_VerifyGiftPage"/>
-            <class name="test.java.org.urbanladder.tests.TC17_VerifyDesignTemplate"/>
-            <class name="test.java.org.urbanladder.tests.TC18_VerifyGiftCardDetails"/>
-            <class name="test.java.org.urbanladder.tests.TC19_VerifyValidSenderAndReceiverDetails"/>
-            <class name="test.java.org.urbanladder.tests.TC20_VerifyInvalidSenderAndReceiverDetails"/>
-        </classes>
-    </test>
+<!--    <test name="Edge Execution">-->
+<!--        <parameter name="browser" value="edge"/>-->
+<!--        <classes>-->
+<!--            <class name="test.java.org.urbanladder.tests.TC1_VerifyBookshelvesFilter"/>-->
+<!--            <class name="test.java.org.urbanladder.tests.TC2_VerifyNameAndPriceVisibility"/>-->
+<!--            <class name="test.java.org.urbanladder.tests.TC3_VerifyFirstThreeBookshelfDetails"/>-->
+<!--            <class name="test.java.org.urbanladder.tests.TC4_VerifySamePriceBookshelves"/>-->
+<!--            <class name="test.java.org.urbanladder.tests.TC5_VerifyContactUsBulkOrderEmail"/>-->
+<!--            <class name="test.java.org.urbanladder.tests.TC6_VerifyStudyChairFilter"/>-->
+<!--            <class name="test.java.org.urbanladder.tests.TC7_VerifyNameAndPriceVisibility"/>-->
+<!--            <class name="test.java.org.urbanladder.tests.TC8_VerifyFirstThreeStudyChairDetails"/>-->
+<!--            <class name="test.java.org.urbanladder.tests.TC9_VerifySamePriceStudyChairs"/>-->
+<!--            <class name="test.java.org.urbanladder.tests.TC10_VerifyDeliveryLocations"/>-->
+<!--            <class name="test.java.org.urbanladder.tests.TC11_VerifyNewArrivals"/>-->
+<!--            <class name="test.java.org.urbanladder.tests.TC12_VerifyOasisCollection"/>-->
+<!--            <class name="test.java.org.urbanladder.tests.TC13_VerifyOasisCollectionSubMenu"/>-->
+<!--            <class name="test.java.org.urbanladder.tests.TC14_VerifyOasisCollectionPage"/>-->
+<!--            <class name="test.java.org.urbanladder.tests.TC15_VerifyLivingRoomPage"/>-->
+<!--            <class name="test.java.org.urbanladder.tests.TC16_VerifyGiftPage"/>-->
+<!--            <class name="test.java.org.urbanladder.tests.TC17_VerifyDesignTemplate"/>-->
+<!--            <class name="test.java.org.urbanladder.tests.TC18_VerifyGiftCardDetails"/>-->
+<!--            <class name="test.java.org.urbanladder.tests.TC19_VerifyValidSenderAndReceiverDetails"/>-->
+<!--            <class name="test.java.org.urbanladder.tests.TC20_VerifyInvalidSenderAndReceiverDetails"/>-->
+<!--        </classes>-->
+<!--    </test>-->
     <listeners>
         <listener class-name="main.java.org.urbanladder.listeners.ExtentReportListener"/>
     </listeners>

@@ -2,6 +2,7 @@ package test.java.basetest;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import main.java.org.urbanladder.utils.CodeUtilities;
 import main.java.org.urbanladder.utils.ExtentReportManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -22,8 +23,9 @@ public class BaseTest {
     protected Logger logger;
     public static ExtentReports extent;
     public static ExtentTest test;
+    public static CodeUtilities code;
 
-    @BeforeSuite
+    @BeforeTest
     public void setupExtentReport() {
         extent = ExtentReportManager.getExtentReports();
     }
@@ -58,6 +60,7 @@ public class BaseTest {
         driver.manage().window().maximize();
 
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        code = new CodeUtilities();
     }
 
     @AfterMethod

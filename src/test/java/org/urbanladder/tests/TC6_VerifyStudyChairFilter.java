@@ -18,8 +18,7 @@ public class TC6_VerifyStudyChairFilter extends BaseTest {
             urbanLadderHomePage.handlePopUp();
         }
         catch (Exception e){
-            logger.info("No pop up found");
-            test.info("No pop up found");
+            code.logInfo("No pop up found");
         }
 
         String searchText = ExcelReaderUtil.getCellValue(
@@ -48,6 +47,8 @@ public class TC6_VerifyStudyChairFilter extends BaseTest {
         searchResultsPage.clickOutOfStock();
         searchResultsPage.clickApply();
 
+        code.captureScreenshot("TC6 - Study_Chair_Search_Result");
+
         int firstPrice = searchResultsPage.getFirstProductPrice();
         int max = Integer.parseInt(maxPrice);
 
@@ -57,7 +58,6 @@ public class TC6_VerifyStudyChairFilter extends BaseTest {
                         + firstPrice
         );
         softAssert.assertAll();
-        logger.info("TC_6 Execution Completed");
-        test.info("TC_6 Execution Completed");
+        code.logInfo("TC_6 Execution Completed");
     }
 }

@@ -14,9 +14,8 @@ public class TC12_VerifyOasisCollection extends BaseTest {
 
         try {
             urbanLadderHomePage.handlePopUp();
-        }
-        catch (Exception e){
-            logger.info("No pop up found");
+        } catch (Exception e) {
+            code.logInfo("No pop up found");
         }
 
         urbanLadderHomePage.hoverOnNewArrivals();
@@ -27,7 +26,6 @@ public class TC12_VerifyOasisCollection extends BaseTest {
         softAssert.assertEquals(oasisButtonUrl, properties.getProperty("oasis.url"));
 
         softAssert.assertAll();
-        logger.info("TC_12 Execution Completed");
-        test.info("TC_12 Execution Completed");
+        code.logInfo("TC_12 Execution Completed");
     }
 }

@@ -23,8 +23,7 @@ public class TC3_VerifyFirstThreeBookshelfDetails extends BaseTest {
         try {
             urbanLadderHomePage.handlePopUp();
         } catch (Exception e) {
-            logger.info("No popup found");
-            test.info("No popup found");
+            code.logInfo("No pop up found");
         }
 
         String searchText = ExcelReaderUtil.getCellValue(
@@ -71,8 +70,7 @@ public class TC3_VerifyFirstThreeBookshelfDetails extends BaseTest {
                 softAssert.assertFalse(
                         productName.getText().trim().isEmpty(),
                         "Product name missing for product " + (i + 1));
-                logger.info("Bookshelf " + (i + 1) + " : " + productName.getText());
-                test.info("Bookshelf " + (i + 1) + " : " + productName.getText());
+                code.logInfo("Bookshelf " + (i + 1) + " : " + productName.getText());
             } catch (Exception e) {
                 softAssert.fail(
                         "Unable to capture details for bookshelf " + (i + 1));
@@ -80,7 +78,6 @@ public class TC3_VerifyFirstThreeBookshelfDetails extends BaseTest {
         }
 
         softAssert.assertAll();
-        logger.info("TC_3 Execution Completed");
-        test.info("TC_3 Execution Completed");
+        code.logInfo("TC_3 Execution Completed");
     }
 }

@@ -17,10 +17,8 @@ public class TC13_VerifyOasisCollectionSubMenu extends BaseTest {
 
         try {
             urbanLadderHomePage.handlePopUp();
-        }
-        catch (Exception e){
-            logger.info("No pop up found");
-            test.info("No pop up found");
+        } catch (Exception e) {
+            code.logInfo("No pop up found");
         }
 
         List<String> expectedOasisItems = ExcelReaderUtil.getExpectedMenuItems(properties.getProperty("excelPath"), properties.getProperty("oasis.sheetName"));
@@ -30,13 +28,12 @@ public class TC13_VerifyOasisCollectionSubMenu extends BaseTest {
         List<WebElement> oasisSubMenu = urbanLadderHomePage.retrieveOasisCollectionList();
 
         List<String> actualItems = oasisSubMenu.stream()
-                        .map(element -> element.getText().trim())
-                                .toList();
+                .map(element -> element.getText().trim())
+                .toList();
 
         softAssert.assertEquals(actualItems, expectedOasisItems, "The Oasis sub-menu items do not match.");
 
         softAssert.assertAll();
-        logger.info("TC_13 Execution Completed");
-        test.info("TC_13 Execution Completed");
+        code.logInfo("TC_13 Execution Completed");
     }
 }

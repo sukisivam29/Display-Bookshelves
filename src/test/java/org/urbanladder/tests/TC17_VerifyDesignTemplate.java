@@ -12,24 +12,22 @@ import java.util.Set;
 public class TC17_VerifyDesignTemplate extends BaseTest {
 
     @Test
-    public void verifyDesignTemplate(){
+    public void verifyDesignTemplate() {
         UrbanLadderHomePage urbanLadderHomePage = new UrbanLadderHomePage(driver);
         GiftCardsPage giftCardsPage = new GiftCardsPage(driver);
         SoftAssert softAssert = new SoftAssert();
 
         try {
             urbanLadderHomePage.handlePopUp();
-        }
-        catch (Exception e){
-            logger.info("No pop up found");
-            test.info("No pop up found");
+        } catch (Exception e) {
+            code.logInfo("No pop up found");
         }
 
         String currentWindowId = driver.getWindowHandle();
         urbanLadderHomePage.clickOnGiftCardsPage();
         Set<String> windows = driver.getWindowHandles();
-        for(String window : windows){
-            if(!currentWindowId.equals(window)){
+        for (String window : windows) {
+            if (!currentWindowId.equals(window)) {
                 driver.switchTo().window(window);
             }
         }
@@ -44,7 +42,7 @@ public class TC17_VerifyDesignTemplate extends BaseTest {
                 giftCardsPage.isBirthdayThemeDisplayed(),
                 "Birthday theme is not displayed"
         );
-        logger.info("TC_17 Execution Completed");
-        test.info("TC_17 Execution Completed");
+
+        code.logInfo("TC_17 Execution Completed");
     }
 }

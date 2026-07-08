@@ -25,8 +25,7 @@ public class TC9_VerifySamePriceStudyChairs extends BaseTest {
         try {
             urbanLadderHomePage.handlePopUp();
         } catch (Exception e) {
-            logger.info("No popup found");
-            test.info("No popup found");
+            code.logInfo("No pop up found");
         }
 
         String searchText = ExcelReaderUtil.getCellValue(
@@ -62,8 +61,8 @@ public class TC9_VerifySamePriceStudyChairs extends BaseTest {
         List<WebElement> products = searchResultsPage.getProductList();
         List<WebElement> prices = searchResultsPage.getProductPrices();
 
-        softAssert.assertTrue(products.size() > 0, "No products found");
-        softAssert.assertTrue(prices.size() > 0, "No prices found");
+        softAssert.assertTrue(!products.isEmpty(), "No products found");
+        softAssert.assertTrue(!prices.isEmpty(), "No prices found");
 
         Map<String, Integer> priceMap = new HashMap<>();
 
@@ -88,12 +87,10 @@ public class TC9_VerifySamePriceStudyChairs extends BaseTest {
         }
 
         if (duplicatePrice == null) {
-            logger.info("No two products have the same price");
-            test.info("No two products have the same price");
+            code.logInfo("No two products have the same price");
 
         } else {
-            logger.info("Two or more products have the same price : " + duplicatePrice);
-            test.info("Two or more products have the same price : " + duplicatePrice);
+            code.logInfo("Two or more products have the same price : " + duplicatePrice);
             int count = 0;
 
             for (int i = 0; i < Math.min(products.size(), prices.size()); i++) {
@@ -104,10 +101,9 @@ public class TC9_VerifySamePriceStudyChairs extends BaseTest {
                             .findElement(By.xpath(".//h2"))
                             .getText();
                     count++;
-                    logger.info("Product " + count + " : " + productName);
-                    test.info("Product " + count + " : " + productName);
-                    logger.info("Price : " + currentPrice);
-                    test.info("Price : " + currentPrice);
+
+                    code.logInfo("Product " + count + " : " + productName);
+                    code.logInfo("Price : " + currentPrice);
 
                     if (count == 2) {
                         break;
@@ -116,9 +112,7 @@ public class TC9_VerifySamePriceStudyChairs extends BaseTest {
             }
         }
 
-        logger.info("TC_9 Execution Completed");
-        test.info("TC_9 Execution Completed");
-
+        code.logInfo("TC_9 Execution Completed");
         softAssert.assertAll();
     }
 }
