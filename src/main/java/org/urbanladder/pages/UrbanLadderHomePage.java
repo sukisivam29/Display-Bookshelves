@@ -41,9 +41,6 @@ public class UrbanLadderHomePage extends CodeUtilities {
     @FindBy(css = "ct-web-popup-imageonly")
     private WebElement popUp;
 
-//    @FindBy(id = "close")
-//    private WebElement popUpClose;
-
     public void clickOnGiftCardsPage() {
         giftCards.click();
     }
@@ -82,7 +79,6 @@ public class UrbanLadderHomePage extends CodeUtilities {
     }
 
     public void handlePopUp() throws Exception {
-//        wait.until(ExpectedConditions.visibilityOf(popUp));
         SearchContext shadowRoot = popUp.getShadowRoot();
         WebElement popUpClose = shadowRoot.findElement(By.id("close"));
         clickElement(popUpClose);

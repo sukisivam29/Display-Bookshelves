@@ -6,9 +6,7 @@ import org.openqa.selenium.WebElement;
 import test.java.basetest.BaseTest;
 
 public class CodeUtilities {
-
-    private static final Logger logger =
-            LoggerManager.getLogger(CodeUtilities.class);
+    private static final Logger logger = LoggerManager.getLogger(CodeUtilities.class);
 
     public void logInfo(String message) {
         logger.info(message);
@@ -20,45 +18,26 @@ public class CodeUtilities {
 
     public void captureScreenshot(String screenshotName) {
         try {
-            String path = ScreenshotUtil.takeScreenShot(
-                    BaseTest.driver,
-                    screenshotName
-            );
-
-            BaseTest.test.info(
-                    "Screenshot captured : " + screenshotName
-            );
-
+            String path = ScreenshotUtil.takeScreenShot(BaseTest.driver, screenshotName);
+            BaseTest.test.info("Screenshot captured : " + screenshotName);
             BaseTest.test.addScreenCaptureFromPath(path);
         } catch (Exception e) {
-
-            logger.error(
-                    "Unable to capture screenshot",
-                    e
-            );
+            logger.error("Unable to capture screenshot", e);
         }
     }
 
     public void scrollToElement(WebElement element) {
         ((JavascriptExecutor) BaseTest.driver)
-                .executeScript(
-                        "arguments[0].scrollIntoView(false);",
-                        element
-                );
+                .executeScript("arguments[0].scrollIntoView(false);", element);
     }
 
     public void scrollToEnd() {
         ((JavascriptExecutor) BaseTest.driver)
-                .executeScript(
-                        "window.scrollTo(0,document.body.scrollHeight);"
-                );
+                .executeScript("window.scrollTo(0,document.body.scrollHeight);");
     }
 
     public void clickElement(WebElement element) {
         ((JavascriptExecutor) BaseTest.driver)
-                .executeScript(
-                        "arguments[0].click();",
-                        element
-                );
+                .executeScript("arguments[0].click();", element);
     }
 }

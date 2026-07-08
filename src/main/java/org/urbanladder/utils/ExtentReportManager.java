@@ -4,9 +4,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
 public class ExtentReportManager {
-
     private static ExtentReports extent;
-
     public static ExtentReports getExtentReports() {
 
         if (extent == null) {
@@ -16,6 +14,7 @@ public class ExtentReportManager {
             extent.setSystemInfo("Project", "Urban Ladder");
             extent.setSystemInfo("Tester", "Sukisivam, Niketha, Berin, Aditya");
         }
+
         return extent;
     }
 }

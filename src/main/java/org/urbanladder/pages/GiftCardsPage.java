@@ -17,7 +17,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
 public class GiftCardsPage extends CodeUtilities {
-
     WebDriver driver;
     WebDriverWait wait;
 
@@ -213,8 +212,7 @@ public class GiftCardsPage extends CodeUtilities {
         return birthdayTheme.isDisplayed();
     }
 
-    public String getInvalidEmailText(){
-//        PageFactory.initElements(driver, this);
+    public String getInvalidEmailText() {
         return invalidEmailMessage.getText();
     }
 
