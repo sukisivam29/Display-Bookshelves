@@ -45,7 +45,6 @@ public class TC2_VerifyNameAndPriceVisibility extends BaseTest {
         searchResultsPage.clickSortBy();
         searchResultsPage.clickHighToLow();
 
-
         List<WebElement> products = searchResultsPage.getProductList();
         List<WebElement> prices = searchResultsPage.getProductPrices();
 

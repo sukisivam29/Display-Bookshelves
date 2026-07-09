@@ -31,11 +31,18 @@ public class BaseTest {
     }
 
     @BeforeMethod
-    @Parameters("browser")
-    public void setDriver(String browser) throws IOException {
+    public void setDriver() throws IOException {
 
         logger = main.java.org.urbanladder.utils.LoggerManager.getLogger(this.getClass());
         logger.info("Spinning up Resources");
+
+        FileReader file =
+                new FileReader(".//src//test//resources//config.properties");
+
+        properties = new Properties();
+        properties.load(file);
+
+        String browser = properties.getProperty("browser");
 
         switch (browser.toLowerCase()) {
             case "chrome":
@@ -49,11 +56,6 @@ public class BaseTest {
             default:
                 throw new IllegalArgumentException("Invalid browser: " + browser);
         }
-        FileReader file =
-                new FileReader(".//src//test//resources//config.properties");
-
-        properties = new Properties();
-        properties.load(file);
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get(properties.getProperty("base.url"));

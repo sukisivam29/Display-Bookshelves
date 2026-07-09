@@ -3,6 +3,7 @@ package test.java.org.urbanladder.tests;
 import main.java.org.urbanladder.pages.SearchResultsPage;
 import main.java.org.urbanladder.pages.UrbanLadderHomePage;
 import main.java.org.urbanladder.utils.CodeUtilities;
+import main.java.org.urbanladder.utils.ExcelReaderUtil;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import test.java.basetest.BaseTest;
@@ -39,13 +40,15 @@ public class TC5_VerifyContactUsBulkOrderEmail extends BaseTest {
         }
 
         code.captureScreenshot("TC5 - Switched_To_Contact_Us_Page");
-
+        String filePath = properties.getProperty("excelPath");
+        String sheetName = properties.getProperty("book.sheetName");
+        String expectedEmail = ExcelReaderUtil.getCellValue(filePath,sheetName,"ExpectedEmail");
         String actualEmail = searchResultsPage.getBulkOrderEmail();
         code.logInfo("Bulk Order Email : " + actualEmail);
 
         softAssert.assertEquals(
                 actualEmail,
-                "bulk@urbanladder.com",
+                expectedEmail,
                 "Incorrect bulk order email displayed");
 
 
