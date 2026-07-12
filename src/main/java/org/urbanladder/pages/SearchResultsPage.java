@@ -50,16 +50,16 @@ public class SearchResultsPage extends CodeUtilities {
     @FindBy(xpath = "//div[@aria-label='Availability']")
     WebElement availability;
 
-    @FindBy(xpath = "//div[@aria-label='Checkbox'][.//p/div/div[contains(text(),'Out Of Stock')]]")
+    @FindBy(xpath = "//div[@aria-label='Out Of Stock'][.//p/div/div[contains(text(),'Out Of Stock')]]")
     WebElement outOfStock;
 
     @FindBy(xpath = "//button[@data-testid='plp-filter-apply-button']")
     WebElement apply;
 
-    @FindBy(xpath = "(//div[@class='MniCX']//div[@class='HOVM7']//div/div[@role='link'])")
+    @FindBy(xpath = "(//div[@class='MniCX']//div[@class='HOVM7']//div/div[@data-testid='plp-product-card'])")
     List<WebElement> productList;
 
-    @FindBy(xpath = "(//div[@class='MniCX']//div[@class='HOVM7']//div/div[@role='link']/div[@class='o0mbO']//span[@class='sr-only'])[1]")
+    @FindBy(xpath = "(//div[@class='MniCX']//div[@class='HOVM7']//div/div[@data-testid='plp-product-card']/div[@class='o0mbO']//span[@class='sr-only'])[1]")
     WebElement firstProductPrice;
 
     @FindBy(xpath = "//div[@class='ug1_C']")
